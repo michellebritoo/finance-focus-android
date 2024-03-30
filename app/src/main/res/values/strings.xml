@@ -1,3 +1,5 @@
 <resources>
-    <string name="app_name">Finance Focus Android</string>
+    <string name="app_name">Finanças em Foco</string>
+    <string name="btn_login">Login</string>
+    <string name="btn_create_account">Criar conta</string>
 </resources>
