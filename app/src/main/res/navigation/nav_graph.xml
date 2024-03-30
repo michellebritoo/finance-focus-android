@@ -7,8 +7,16 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="br.com.michellebrito.financefocus.welcome.WelcomeFragment"
+        android:name="br.com.michellebrito.financefocus.welcome.presentation.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/welcomeToSignUpFragment"
+            app:destination="@id/signUpFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="br.com.michellebrito.financefocus.signup.presentation.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up" />
 </navigation>
