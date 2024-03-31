@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/welcomeFragment">
+
+    <fragment
+        android:id="@+id/welcomeFragment"
+        android:name="br.com.michellebrito.financefocus.welcome.presentation.WelcomeFragment"
+        android:label="fragment_welcome"
+        tools:layout="@layout/fragment_welcome" >
+        <action
+            android:id="@+id/welcomeToSignUpFragment"
+            app:destination="@id/signUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="br.com.michellebrito.financefocus.signup.email.presentation.SignUpEmailStepFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up_email_step" >
+        <action
+            android:id="@+id/signUpStepEmailToStepPassword"
+            app:destination="@id/signUpPasswordStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpPasswordStepFragment"
+        android:name="br.com.michellebrito.financefocus.signup.password.presentation.SignUpPasswordStepFragment"
+        android:label="SignUpPasswordStepFragment" />
+</navigation>
