@@ -1,7 +1,8 @@
 
+![finance focus cover](https://github.com/michellebritoo/finance-focus-android/assets/70734738/558caa66-aac1-4e88-a9b4-81c4af3669ce)
 # Finanças em Foco
 
-Esse projeto é parte do Trabalho de Conclusão do Curso de Sistemas de Informação
+Esse projeto é parte do Trabalho de Conclusão do Curso de Sistemas de Informação de Michelle Brito
 
 
 ## Contribuindo 📝
