@@ -16,7 +16,15 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="br.com.michellebrito.financefocus.signup.presentation.email.SignUpEmailStepFragment"
+        android:name="br.com.michellebrito.financefocus.signup.email.presentation.SignUpEmailStepFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up" />
+        tools:layout="@layout/fragment_sign_up_email_step" >
+        <action
+            android:id="@+id/signUpStepEmailToStepPassword"
+            app:destination="@id/signUpPasswordStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpPasswordStepFragment"
+        android:name="br.com.michellebrito.financefocus.signup.password.presentation.SignUpPasswordStepFragment"
+        android:label="SignUpPasswordStepFragment" />
 </navigation>
