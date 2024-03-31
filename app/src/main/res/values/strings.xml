@@ -2,4 +2,17 @@
     <string name="app_name">Finanças em Foco</string>
     <string name="btn_login">Login</string>
     <string name="btn_create_account">Criar conta</string>
+    <string name="btn_continue">Continuar</string>
+
+    <!-- signup email step -->
+    <string name="type_your_email_title">Vamos criar sua conta!</string>
+    <string name="type_your_email_description">Para começar, informe seu email</string>
+    <string name="type_your_email">Digite seu email</string>
+    <string name="confirm_your_email">Confirme seu email</string>
+
+    <!-- signup password step -->
+    <string name="type_your_password_title">Estamos quase lá!</string>
+    <string name="type_your_password_description">Agora crie sua senha</string>
+    <string name="type_your_password">Crie sua senha</string>
+    <string name="confirm_your_password">Confirme sua senha</string>
 </resources>
