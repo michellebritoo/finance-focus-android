@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -52,6 +53,8 @@ dependencies {
     implementation("io.insert-koin:koin-android:2.2.3")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
+    implementation("com.google.firebase:firebase-analytics")
 
     testImplementation("junit:junit:4.13.2")
 
