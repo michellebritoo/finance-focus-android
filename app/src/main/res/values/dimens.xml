@@ -9,4 +9,5 @@
     <dimen name="margin_twenty_four">24dp</dimen>
     <dimen name="margin_fifty">50dp</dimen>
     <dimen name="margin_sixty">60dp</dimen>
+    <dimen name="margin_hundred">100dp</dimen>
 </resources>
