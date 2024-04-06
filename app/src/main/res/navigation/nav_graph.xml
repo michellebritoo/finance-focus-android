@@ -13,6 +13,9 @@
         <action
             android:id="@+id/welcomeToSignUpFragment"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/welcomeToLogin"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
@@ -27,4 +30,12 @@
         android:id="@+id/signUpPasswordStepFragment"
         android:name="br.com.michellebrito.financefocus.signup.password.presentation.SignUpPasswordStepFragment"
         android:label="SignUpPasswordStepFragment" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="br.com.michellebrito.financefocus.login.presentation.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/loginToSignUp"
+            app:destination="@id/signUpFragment" />
+    </fragment>
 </navigation>
