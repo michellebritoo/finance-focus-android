@@ -18,5 +18,8 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         tvCreateAccount.setOnClickListener {
             findNavController().navigate(R.id.loginToSignUp)
         }
+        btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.loginToHome)
+        }
     }
 }
