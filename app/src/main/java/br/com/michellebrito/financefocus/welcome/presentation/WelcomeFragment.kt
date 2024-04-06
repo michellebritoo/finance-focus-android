@@ -15,6 +15,9 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     }
 
     private fun setupListeners() = with(binding) {
+        btnLogin.setOnClickListener {
+            findNavController().navigate(R.id.welcomeToLogin)
+        }
         btnSignup.setOnClickListener {
             findNavController().navigate(R.id.welcomeToSignUpFragment)
         }
