@@ -22,7 +22,6 @@ class CustomButton @JvmOverloads constructor(
 
     init {
         setLayout(attrs)
-        refreshState()
     }
 
     fun enableButton() {
