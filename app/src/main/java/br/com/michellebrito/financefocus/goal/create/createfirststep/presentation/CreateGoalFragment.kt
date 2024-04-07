@@ -19,9 +19,8 @@ class CreateGoalFragment : Fragment(R.layout.fragment_create_goal) {
     }
 
     private fun setupListeners() = with(binding) {
-        topBar.setNavigationOnClickListener {
-            findNavController().popBackStack()
-        }
+        topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        btnContinue.setOnClickListener { findNavController().navigate(R.id.createGoalToCreateGoalSecondStep) }
         ETTitle.doAfterTextChanged { viewModel.onTitleChanged(it.toString()) }
         ETValue.doAfterTextChanged { viewModel.onValueChanged(it.toString()) }
     }

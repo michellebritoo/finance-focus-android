@@ -57,5 +57,14 @@
         android:id="@+id/createGoalFragment"
         android:name="br.com.michellebrito.financefocus.goal.create.createfirststep.presentation.CreateGoalFragment"
         android:label="fragment_create_goal"
-        tools:layout="@layout/fragment_create_goal" />
+        tools:layout="@layout/fragment_create_goal" >
+        <action
+            android:id="@+id/createGoalToCreateGoalSecondStep"
+            app:destination="@id/createGoalSecondStepFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createGoalSecondStepFragment"
+        android:name="br.com.michellebrito.financefocus.goal.create.createsecondstep.presentation.CreateGoalSecondStepFragment"
+        android:label="fragment_create_goal_second_step"
+        tools:layout="@layout/fragment_create_goal_second_step" />
 </navigation>
