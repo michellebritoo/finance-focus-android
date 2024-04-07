@@ -37,5 +37,13 @@
         <action
             android:id="@+id/loginToSignUp"
             app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/loginToHome"
+            app:destination="@id/homeFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.com.michellebrito.financefocus.home.presentation.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
 </navigation>
