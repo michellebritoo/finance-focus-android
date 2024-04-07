@@ -53,7 +53,7 @@
     </fragment>
     <fragment
         android:id="@+id/createGoalFragment"
-        android:name="br.com.michellebrito.financefocus.goal.create.presentation.CreateGoalFragment"
+        android:name="br.com.michellebrito.financefocus.goal.create.createfirststep.presentation.CreateGoalFragment"
         android:label="fragment_create_goal"
         tools:layout="@layout/fragment_create_goal" />
 </navigation>
