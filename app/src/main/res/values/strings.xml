@@ -31,4 +31,12 @@
 
     <!-- create goal -->
     <string name="create_goal_toolbar_title">Cadastro de objetivos</string>
+    <string name="create_goal_title">Vamos definir seu objetivo!</string>
+    <string name="create_goal_subtitle">Defina metas, acompanhe o progresso e realize seus objetivos.</string>
+    <string name="create_goal_title_placeholder">Defina um nome para seu objetivo</string>
+    <string name="create_goal_title_hint">Nome</string>
+    <string name="create_goal_description_hint">Descrição</string>
+    <string name="create_goal_description_placeholder">Descreva seu objetivo</string>
+    <string name="crate_goal_value_hint">Valor</string>
+    <string name="crate_goal_value_placeholder">R$</string>
 </resources>

@@ -15,7 +15,7 @@ class CreateGoalFragment : Fragment(R.layout.fragment_create_goal) {
     }
 
     private fun setupListeners() = with(binding) {
-        appBar.setNavigationOnClickListener {
+        topBar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
     }
