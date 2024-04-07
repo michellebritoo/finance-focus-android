@@ -13,6 +13,19 @@
     <!-- signup password step -->
     <string name="type_your_password_title">Estamos quase lá!</string>
     <string name="type_your_password_description">Agora crie sua senha</string>
-    <string name="type_your_password">Crie sua senha</string>
+    <string name="create_your_password">Crie sua senha</string>
     <string name="confirm_your_password">Confirme sua senha</string>
+
+    <!-- login -->
+    <string name="login_title">Bem vindo de volta</string>
+    <string name="login_description">Acesse a sua conta</string>
+    <string name="type_your_password">Digite sua senha</string>
+    <string name="forgot_password">Esqueceu a senha?</string>
+    <string name="btn_login_registre_your_account">Não tem uma conta? <b>Registre-se</b></string>
+
+    <!-- Home -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
+    <string name="btn_create_goal">Cadastrar objetivo</string>
+    <string name="btn_check_rates">Consultar taxas de juros</string>
 </resources>
