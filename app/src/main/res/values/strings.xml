@@ -30,4 +30,5 @@
     <string name="btn_check_rates">Consultar taxas de juros</string>
 
     <!-- create goal -->
+    <string name="create_goal_toolbar_title">Cadastro de objetivos</string>
 </resources>

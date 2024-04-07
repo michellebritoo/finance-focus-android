@@ -45,5 +45,15 @@
         android:id="@+id/homeFragment"
         android:name="br.com.michellebrito.financefocus.home.presentation.HomeFragment"
         android:label="fragment_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_home" >
+        <action
+            android:id="@+id/homeToCreateGoal"
+            app:destination="@id/createGoalFragment" />
+
+    </fragment>
+    <fragment
+        android:id="@+id/createGoalFragment"
+        android:name="br.com.michellebrito.financefocus.goal.create.presentation.CreateGoalFragment"
+        android:label="fragment_create_goal"
+        tools:layout="@layout/fragment_create_goal" />
 </navigation>
