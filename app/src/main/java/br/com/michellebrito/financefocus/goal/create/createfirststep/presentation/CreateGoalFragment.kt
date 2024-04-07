@@ -6,10 +6,12 @@ import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentCreateGoalBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CreateGoalFragment : Fragment(R.layout.fragment_create_goal) {
     private val binding: FragmentCreateGoalBinding by viewBinding()
-    private val viewModel = CreateGoalViewModel()
+    private val viewModel: CreateGoalViewModel by viewModel()
+
     override fun onResume() {
         super.onResume()
         setupListeners()
