@@ -1,4 +1,4 @@
-package br.com.michellebrito.financefocus.goal.create.presentation
+package br.com.michellebrito.financefocus.goal.create.createfirststep.presentation
 
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
