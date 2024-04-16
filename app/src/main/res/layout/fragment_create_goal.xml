@@ -122,6 +122,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:title="@string/btn_continue"
-        app:isEnabled="false"/>
+        app:isEnabled="true"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

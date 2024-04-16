@@ -56,6 +56,7 @@ dependencies {
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.redmadrobot:input-mask-android:7.2.4")
 
     testImplementation("junit:junit:4.13.2")
 
