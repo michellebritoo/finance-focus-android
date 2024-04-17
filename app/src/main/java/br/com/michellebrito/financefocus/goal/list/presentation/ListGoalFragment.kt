@@ -11,10 +11,11 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
 
     override fun onResume() {
         super.onResume()
-        setupListeners()
+        setupView()
     }
 
-    private fun setupListeners() = with(binding) {
+    private fun setupView() = with(binding) {
+        bottomNavigation.selectedItemId = R.id.item_goals
         rvGoalList.adapter = ListGoalAdapter(
             listOf(
                 ListGoalItemModel("TV", "20/07/2022"),
@@ -24,20 +25,6 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 ListGoalItemModel("Celular", "20/10/2022"),
                 ListGoalItemModel("Celular", "20/10/2022"),
                 ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("Celular", "20/10/2022"),
-                ListGoalItemModel("TV", "20/07/2022"),
                 ListGoalItemModel("Celular", "20/10/2022"),
             )
         )

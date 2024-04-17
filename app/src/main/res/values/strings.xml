@@ -59,4 +59,9 @@
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
     <string name="list_goal_search">Pesquisar</string>
+
+    <!-- menu items -->
+    <string name="menu_item_rates">Calcular juros</string>
+    <string name="menu_item_goals">Meus objetivos</string>
+    <string name="menu_item_profile">Meu perfil</string>
 </resources>
