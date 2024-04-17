@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/item_rates"
+        android:icon="@drawable/ic_graph"
+        android:title="@string/menu_item_rates" />
+    <item
+        android:id="@+id/item_goals"
+        android:icon="@drawable/ic_goal_list"
+        android:title="@string/menu_item_goals"
+        android:checked="true" />
+    <item
+        android:id="@+id/item_profile"
+        android:icon="@drawable/ic_person"
+        android:title="@string/menu_item_profile" />
+</menu>
