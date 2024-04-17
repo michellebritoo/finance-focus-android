@@ -192,6 +192,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_create_goal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"

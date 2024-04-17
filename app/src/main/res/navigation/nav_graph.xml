@@ -66,10 +66,23 @@
         android:id="@+id/createGoalSecondStepFragment"
         android:name="br.com.michellebrito.financefocus.goal.create.createsecondstep.presentation.CreateGoalSecondStepFragment"
         android:label="fragment_create_goal_second_step"
-        tools:layout="@layout/fragment_create_goal_second_step" />
+        tools:layout="@layout/fragment_create_goal_second_step" >
+        <action
+            android:id="@+id/createGoalSecondStepFragmentToListGoalFragment"
+            app:destination="@id/listGoalFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listGoalFragment"
         android:name="br.com.michellebrito.financefocus.goal.list.presentation.ListGoalFragment"
         android:label="fragment_list_goal"
-        tools:layout="@layout/fragment_list_goal" />
+        tools:layout="@layout/fragment_list_goal" >
+        <action
+            android:id="@+id/listGoalFragmentToGoalDetailsFragment"
+            app:destination="@id/goalDetailsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalDetailsFragment"
+        android:name="br.com.michellebrito.financefocus.goal.details.presentation.GoalDetailsFragment"
+        android:label="fragment_goal_details"
+        tools:layout="@layout/fragment_goal_details" />
 </navigation>
