@@ -79,6 +79,9 @@
         <action
             android:id="@+id/listGoalFragmentToGoalDetailsFragment"
             app:destination="@id/goalDetailsFragment" />
+        <action
+            android:id="@+id/listGoalFragmentToCreateGoalFragment"
+            app:destination="@id/createGoalFragment" />
     </fragment>
     <fragment
         android:id="@+id/goalDetailsFragment"

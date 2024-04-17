@@ -13,6 +13,11 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     override fun onResume() {
         super.onResume()
         setupView()
+        setupListeners()
+    }
+
+    private fun setupListeners() = with(binding) {
+        floatingActionButton.setOnClickListener { findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment) }
     }
 
     private fun setupView() = with(binding) {
