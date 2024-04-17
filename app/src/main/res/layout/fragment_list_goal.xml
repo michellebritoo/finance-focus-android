@@ -50,25 +50,36 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_search"
-            android:drawableStart="@drawable/ic_search"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:drawableStart="@drawable/ic_search" />
 
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_goal_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/til_search"
+        tools:listitem="@layout/goal_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/floatingActionButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
-        android:layout_marginBottom="@dimen/margin_hundred"
+        android:layout_marginBottom="@dimen/margin_sixty"
         android:backgroundTint="@color/accent"
         android:clickable="true"
-        app:srcCompat="@drawable/ic_plus"
+        android:contentDescription="@string/btn_create_goal"
+        android:focusable="true"
         android:tint="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:focusable="true"
-        android:contentDescription="@string/btn_create_goal" />
+        app:srcCompat="@drawable/ic_plus" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
