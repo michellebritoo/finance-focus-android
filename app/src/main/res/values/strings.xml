@@ -39,7 +39,7 @@
     <string name="create_goal_description_placeholder">Descreva seu objetivo</string>
     <string name="crate_goal_value_hint">Valor</string>
     <string name="crate_goal_value_placeholder">R$</string>
-    
+
     <!-- create goal second step -->
     <string name="create_goal_second_step_title">Você está quase lá!</string>
     <string name="create_goal_second_step_subtitle">Falta pouco para registrar seu objetivo.</string>
@@ -55,4 +55,8 @@
     <string name="create_goal_init_date_place_holder">Defina a data de início para o seu objetivo</string>
     <string name="create_goal_finish_date_hint">Data de conclusão</string>
     <string name="create_goal_finish_date_place_holder">Defina a data para conclusão do seu objetivo</string>
+
+    <!-- list of goals -->
+    <string name="list_goal_title">Esses são seu objetivos</string>
+    <string name="list_goal_search">Pesquisar</string>
 </resources>
