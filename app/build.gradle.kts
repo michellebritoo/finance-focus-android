@@ -51,10 +51,14 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("io.insert-koin:koin-core:2.2.3")
     implementation("io.insert-koin:koin-android:2.2.3")
+    implementation("io.insert-koin:koin-androidx-viewmodel:2.2.3")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-analytics")
+    implementation("com.redmadrobot:input-mask-android:7.2.4")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("com.github.mancj:SlimChart:0.1.2")
 
     testImplementation("junit:junit:4.13.2")
 

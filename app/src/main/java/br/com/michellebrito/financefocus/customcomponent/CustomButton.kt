@@ -22,7 +22,6 @@ class CustomButton @JvmOverloads constructor(
 
     init {
         setLayout(attrs)
-        refreshState()
     }
 
     fun enableButton() {
@@ -45,13 +44,20 @@ class CustomButton @JvmOverloads constructor(
                 title = context.getString(titleResId)
             }
 
-            val type = attributes.getBoolean(R.styleable.CustomButton_typeNormal, true)
-            if (type) {
+            val typeNormal = attributes.getBoolean(R.styleable.CustomButton_typeNormal, true)
+            if (typeNormal) {
                 setBackgroundResource(R.drawable.custom_button_background)
                 binding.tvTitleButton.setTextColor(context.getColor(R.color.white))
             } else {
                 setBackgroundResource(R.drawable.custom_button_background_white)
                 binding.tvTitleButton.setTextColor(context.getColor(R.color.primary))
+            }
+
+            val isEnabled = attributes.getBoolean(R.styleable.CustomButton_isEnabled, true)
+            if (isEnabled) {
+                enableButton()
+            } else {
+                disableButton()
             }
 
             attributes.recycle()
