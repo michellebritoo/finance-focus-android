@@ -4,6 +4,7 @@
     <dimen name="text_size_sixteen">16sp</dimen>
     <dimen name="text_size_eighteen">18sp</dimen>
     <dimen name="text_size_twenty">20sp</dimen>
+    <dimen name="text_size_twenty_four">24sp</dimen>
 
     <dimen name="margin_four">4dp</dimen>
     <dimen name="margin_eight">8dp</dimen>

@@ -57,6 +57,8 @@ dependencies {
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.redmadrobot:input-mask-android:7.2.4")
+    implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation("com.github.mancj:SlimChart:0.1.2")
 
     testImplementation("junit:junit:4.13.2")
 

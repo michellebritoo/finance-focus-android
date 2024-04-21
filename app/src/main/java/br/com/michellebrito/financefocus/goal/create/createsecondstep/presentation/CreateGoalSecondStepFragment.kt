@@ -20,6 +20,7 @@ class CreateGoalSecondStepFragment : Fragment(R.layout.fragment_create_goal_seco
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        btnCreateGoal.setOnClickListener { findNavController().navigate(R.id.createGoalSecondStepFragmentToListGoalFragment) }
     }
 
 

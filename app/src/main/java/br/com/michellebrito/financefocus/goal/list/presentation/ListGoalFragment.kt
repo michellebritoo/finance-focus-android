@@ -1,6 +1,7 @@
 package br.com.michellebrito.financefocus.goal.list.presentation
 
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentListGoalBinding
 import br.com.michellebrito.financefocus.goal.list.model.ListGoalItemModel
@@ -12,6 +13,11 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     override fun onResume() {
         super.onResume()
         setupView()
+        setupListeners()
+    }
+
+    private fun setupListeners() = with(binding) {
+        floatingActionButton.setOnClickListener { findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment) }
     }
 
     private fun setupView() = with(binding) {
@@ -27,6 +33,10 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 ListGoalItemModel("Celular", "20/10/2022"),
                 ListGoalItemModel("Celular", "20/10/2022"),
             )
-        )
+        ).apply {
+            onItemClick = {
+                findNavController().navigate(R.id.listGoalFragmentToGoalDetailsFragment)
+            }
+        }
     }
 }

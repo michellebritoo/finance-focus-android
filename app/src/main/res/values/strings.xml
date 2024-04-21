@@ -24,7 +24,6 @@
     <string name="btn_login_registre_your_account">Não tem uma conta? <b>Registre-se</b></string>
 
     <!-- Home -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
     <string name="btn_create_goal">Cadastrar objetivo</string>
     <string name="btn_check_rates">Consultar taxas de juros</string>
@@ -64,4 +63,10 @@
     <string name="menu_item_rates">Calcular juros</string>
     <string name="menu_item_goals">Meus objetivos</string>
     <string name="menu_item_profile">Meu perfil</string>
+
+    <!-- goal details -->
+    <string name="goal_details_my_goal">Meu objetivo</string>
+    <string name="goal_details_title">Aqui estão os detalhes do seu objetivo</string>
+    <string name="goal_details_description">Acompanhe sua meta e registre seu progresso.</string>
+    <string name="goal_details_register_progress">Registrar progresso</string>
 </resources>
