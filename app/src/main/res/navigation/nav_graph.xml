@@ -51,6 +51,9 @@
         <action
             android:id="@+id/homeToCreateGoal"
             app:destination="@id/createGoalFragment" />
+        <action
+            android:id="@+id/homeToCalculateRates"
+            app:destination="@id/calculateRatesFragment" />
 
     </fragment>
     <fragment
@@ -82,10 +85,22 @@
         <action
             android:id="@+id/listGoalFragmentToCreateGoalFragment"
             app:destination="@id/createGoalFragment" />
+        <action
+            android:id="@+id/listGoalToCalculateRates"
+            app:destination="@id/calculateRatesFragment" />
     </fragment>
     <fragment
         android:id="@+id/goalDetailsFragment"
         android:name="br.com.michellebrito.financefocus.goal.details.presentation.GoalDetailsFragment"
         android:label="fragment_goal_details"
-        tools:layout="@layout/fragment_goal_details" />
+        tools:layout="@layout/fragment_goal_details" >
+        <action
+            android:id="@+id/goalDetailsToCalculateRates"
+            app:destination="@id/calculateRatesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateRatesFragment"
+        android:name="br.com.michellebrito.financefocus.rates.calculate.presentation.CalculateRatesFragment"
+        android:label="fragment_calculate_rates"
+        tools:layout="@layout/fragment_calculate_rates" />
 </navigation>

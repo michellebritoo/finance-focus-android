@@ -17,7 +17,16 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        bottomNavigation.selectedItemId = R.id.item_goals
+        bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.item_rates -> findNavController().navigate(R.id.goalDetailsToCalculateRates)
+                R.id.item_goals -> findNavController().navigate(R.id.listGoalFragment)
+            }
+            true
+        }
     }
+
 
     private fun setupProgressChart(progress: Float) = binding.slimChart.apply {
         stats = floatArrayOf(progress)

@@ -17,7 +17,15 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     }
 
     private fun setupListeners() = with(binding) {
-        floatingActionButton.setOnClickListener { findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment) }
+        floatingActionButton.setOnClickListener {
+            findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment)
+        }
+        bottomNavigation.setOnItemSelectedListener {
+            when (it.itemId) {
+               R.id.item_rates -> findNavController().navigate(R.id.listGoalToCalculateRates)
+            }
+            true
+        }
     }
 
     private fun setupView() = with(binding) {
