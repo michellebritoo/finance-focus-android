@@ -12,9 +12,18 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
     override fun onResume() {
         super.onResume()
         setupListeners()
+        setupProgressChart(80f)
     }
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+    }
+
+    private fun setupProgressChart(progress: Float) = binding.slimChart.apply {
+        stats = floatArrayOf(progress)
+        text = "${progress.toInt()}%"
+
+        setStartAnimationDuration(3000)
+        playStartAnimation()
     }
 }

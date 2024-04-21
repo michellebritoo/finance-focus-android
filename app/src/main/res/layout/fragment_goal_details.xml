@@ -68,48 +68,72 @@
                 android:id="@+id/tv_card_date"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="20/04/2025"
                 android:textColor="@color/grey_text"
                 android:textSize="@dimen/text_size_fourteen"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="20/04/2025" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_card_value"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="R$ 1.000,00"
                 android:textColor="@color/grey_text"
                 android:textSize="@dimen/text_size_fourteen"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:text="R$ 1.000,00" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_sixteen"
+                android:text="TV"
                 android:textSize="@dimen/text_size_twenty_four"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_card_date"
-                android:text="TV" />
+                app:layout_constraintTop_toBottomOf="@+id/tv_card_date" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_card_description"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="@dimen/margin_sixteen"
+                android:text="Nova TV pora a sala, Lorem ipsum dolor sit amet, consectetur adipiscing elit."
                 android:textAlignment="textStart"
                 android:textColor="@color/grey_text"
                 android:textSize="@dimen/text_size_fourteen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tv_card_title"
-                android:text="Nova TV pora a sala, Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+                app:layout_constraintTop_toBottomOf="@+id/tv_card_title" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <com.mancj.slimchart.SlimChart
+        android:id="@+id/slimChart"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="@dimen/margin_twenty_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cv_goal"
+        app:strokeWidth="@dimen/margin_sixteen"
+        app:textColor="@color/primary"
+        app:defaultColor="@color/primary"
+        android:textAlignment="center"
+        app:roundedEdges="true" />
+
+    <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:layout_width="match_parent"
+        app:title="@string/goal_details_register_progress"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
+        android:layout_marginBottom="@dimen/margin_twenty_four"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
