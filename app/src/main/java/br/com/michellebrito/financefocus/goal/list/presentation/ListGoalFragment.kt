@@ -1,5 +1,6 @@
 package br.com.michellebrito.financefocus.goal.list.presentation
 
+import androidx.activity.addCallback
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
@@ -17,6 +18,10 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     }
 
     private fun setupListeners() = with(binding) {
+        requireActivity().onBackPressedDispatcher.addCallback {
+            requireActivity().finish()
+        }
+
         floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment)
         }

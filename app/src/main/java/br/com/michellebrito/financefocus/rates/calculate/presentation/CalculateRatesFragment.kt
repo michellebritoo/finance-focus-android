@@ -20,7 +20,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.item_goals -> findNavController().navigate(R.id.listGoalFragment)
-                R.id.profileFragment -> findNavController().navigate(R.id.profileFragment)
+                R.id.item_profile -> findNavController().navigate(R.id.profileFragment)
             }
             true
         }
