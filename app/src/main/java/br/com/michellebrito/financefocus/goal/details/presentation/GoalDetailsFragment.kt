@@ -22,6 +22,7 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
             when (it.itemId) {
                 R.id.item_rates -> findNavController().navigate(R.id.goalDetailsToCalculateRates)
                 R.id.item_goals -> findNavController().navigate(R.id.listGoalFragment)
+                R.id.item_profile -> findNavController().navigate(R.id.profileFragment)
             }
             true
         }

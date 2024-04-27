@@ -20,9 +20,12 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
         floatingActionButton.setOnClickListener {
             findNavController().navigate(R.id.listGoalFragmentToCreateGoalFragment)
         }
+
+        bottomNavigation.selectedItemId = R.id.item_goals
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
-               R.id.item_rates -> findNavController().navigate(R.id.listGoalToCalculateRates)
+                R.id.item_rates -> findNavController().navigate(R.id.listGoalToCalculateRates)
+                R.id.item_profile -> findNavController().navigate(R.id.profileFragment)
             }
             true
         }
