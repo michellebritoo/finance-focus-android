@@ -80,4 +80,9 @@
     <string name="calculate_rate_month">Ao mês</string>
     <string name="calculate_rate_year">Ao ano</string>
     <string name="calculate_rates_button_calculate">Calcular</string>
+
+    <!-- profile -->
+    <string name="profile_edit_details">Editar informações</string>
+    <string name="profile_delete_account">Deletar conta</string>
+    <string name="profile_salutation">Olá, %s</string>
 </resources>
