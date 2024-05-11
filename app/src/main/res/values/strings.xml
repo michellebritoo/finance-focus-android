@@ -81,6 +81,14 @@
     <string name="calculate_rate_year">Ao ano</string>
     <string name="calculate_rates_button_calculate">Calcular</string>
 
+    <!-- calculate rates result -->
+    <string name="rates_result_title">Taxa de juros calculada</string>
+    <string name="rates_result_subtitle">Esses são os resultados obtidos</string>
+    <string name="rates_result_info_value">Montante R$ %s</string>
+    <string name="rates_result_info_rate">Taxa de juros: %s</string>
+    <string name="rates_result_info_value_rate">Valor com juros: R$ %s</string>
+    <string name="rates_result_info_rate_general">A taxa de juros média do mercado para esse tipo de serviço é de %s</string>
+
     <!-- profile -->
     <string name="profile_edit_details">Editar informações</string>
     <string name="profile_delete_account">Deletar conta</string>
