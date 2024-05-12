@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".profile.presentation.ProfileFragment">
+    tools:context=".rates.result.CalculateRatesResultFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -20,91 +20,90 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:navigationIcon="@drawable/ic_back"
-            app:title="@string/menu_item_profile"
+            app:title="@string/finance_assistant_toolbar"
             app:titleCentered="true"
             app:titleTextColor="@color/white" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/ic_profile"
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_twenty_four"
-        android:src="@drawable/ic_profile_screen"
+        android:layout_marginTop="@dimen/margin_sixty"
+        android:text="@string/rates_result_title"
+        android:textSize="@dimen/text_size_sixteen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appBar" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/tv_salutation"
+        android:id="@+id/tv_subtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_twenty_four"
-        android:text="Olá, Cristiane"
+        android:layout_marginVertical="@dimen/margin_eight"
+        android:layout_marginTop="@dimen/margin_eight"
+        android:text="@string/rates_result_subtitle"
+        android:textSize="@dimen/text_size_sixteen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ic_profile" />
+        app:layout_constraintTop_toBottomOf="@id/tv_title" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
-        android:id="@+id/td_email"
+        android:id="@+id/info_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_size_sixteen"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginTop="@dimen/margin_twenty_four"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_salutation"
-        app:text="Email: cristiane@email.com" />
+        app:layout_constraintTop_toBottomOf="@id/tv_subtitle"
+        app:text="@string/rates_result_info_value" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
-        android:id="@+id/td_notifications"
+        android:id="@+id/info_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_size_sixteen"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginVertical="@dimen/margin_eight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/td_email"
-        app:text="Receber notificações: sim" />
+        app:layout_constraintTop_toBottomOf="@id/info_value"
+        app:text="@string/rates_result_info_rate" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
-        android:id="@+id/td_goals"
+        android:id="@+id/info_value_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_size_sixteen"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginVertical="@dimen/margin_eight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/td_notifications"
-        app:text="Objetivos alcançados: 5" />
+        app:layout_constraintTop_toBottomOf="@id/info_rate"
+        app:text="@string/rates_result_info_value_rate" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
-        android:id="@+id/td_rates"
+        android:id="@+id/info_global_rate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/text_size_sixteen"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginVertical="@dimen/margin_eight"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/td_goals"
-        app:text="Taxas de juros calculadas: 10" />
+        app:layout_constraintTop_toBottomOf="@id/info_value_rate"
+        app:text="A taxa de juros média do mercado para esse tipo de serviço é de 3%"
+        app:typeWarning="true" />
 
-    <br.com.michellebrito.financefocus.customcomponent.CustomButton
-        android:id="@+id/btn_edit_details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+    <com.github.mikephil.charting.charts.LineChart
         android:layout_margin="@dimen/margin_sixteen"
-        app:layout_constraintBottom_toTopOf="@id/btn_delete_account"
+        android:id="@+id/chart"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:elevation="10dp"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:title="@string/profile_edit_details" />
-
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/btn_delete_account"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/margin_twenty_four"
-        android:text="@string/profile_delete_account"
-        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/info_global_rate"
+        app:layout_constraintBottom_toTopOf="@id/bottom_navigation"/>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -115,5 +114,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:menu="@menu/bottom_nav_menu" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -16,6 +16,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        btnCalculate.setOnClickListener { findNavController().navigate(R.id.calculateRatesToCalculateRatesResult) }
         bottomNavigation.selectedItemId = R.id.item_rates
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
