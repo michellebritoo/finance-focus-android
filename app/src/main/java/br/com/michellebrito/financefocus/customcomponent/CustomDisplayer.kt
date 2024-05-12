@@ -17,6 +17,10 @@ class CustomDisplayer @JvmOverloads constructor(
         setupLayout(attrs)
     }
 
+    fun setText(text: String) {
+        binding.tvTextDisplayer.text = text
+    }
+
     private fun setupLayout(attrs: AttributeSet?) {
         attrs?.let { attributeSet ->
             val attributes = context.obtainStyledAttributes(
