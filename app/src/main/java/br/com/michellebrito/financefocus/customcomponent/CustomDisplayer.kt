@@ -4,6 +4,7 @@ import android.content.Context
 import android.util.AttributeSet
 import android.view.LayoutInflater
 import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.updateLayoutParams
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.ResCustomDisplayerBinding
 
@@ -25,6 +26,15 @@ class CustomDisplayer @JvmOverloads constructor(
 
             binding.tvTextDisplayer.text = attributes.getString(R.styleable.CustomDisplayer_text)
 
+            val isWarning = attributes.getBoolean(R.styleable.CustomDisplayer_typeWarning, false)
+            if (isWarning) {
+                setBackgroundResource(R.drawable.custom_displayer_warning_bg)
+                binding.root.updateLayoutParams {
+                    height = context.resources.getDimensionPixelSize(R.dimen.margin_eighty)
+                }
+            } else {
+                setBackgroundResource(R.drawable.custom_displayer_bg)
+            }
 
             attributes.recycle()
         }
