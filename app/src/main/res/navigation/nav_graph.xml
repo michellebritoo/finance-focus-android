@@ -102,5 +102,19 @@
         android:id="@+id/calculateRatesFragment"
         android:name="br.com.michellebrito.financefocus.rates.calculate.presentation.CalculateRatesFragment"
         android:label="fragment_calculate_rates"
-        tools:layout="@layout/fragment_calculate_rates" />
+        tools:layout="@layout/fragment_calculate_rates" >
+        <action
+            android:id="@+id/calculateRatesToCalculateRatesResult"
+            app:destination="@id/calculateRatesResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/calculateRatesResultFragment"
+        android:name="br.com.michellebrito.financefocus.rates.result.CalculateRatesResultFragment"
+        android:label="fragment_calculate_rates_result"
+        tools:layout="@layout/fragment_calculate_rates_result" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="br.com.michellebrito.financefocus.profile.presentation.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>

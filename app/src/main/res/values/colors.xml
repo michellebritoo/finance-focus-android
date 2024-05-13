@@ -6,6 +6,8 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#A8A8A8</color>
+    <color name="grey_displayer">#B2D9D9D9</color>
     <color name="grey_text">#767272</color>
     <color name="white_opacity">#F8F5F5</color>
+    <color name="yellow_warning">#CEFDF18D</color>
 </resources>

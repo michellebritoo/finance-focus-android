@@ -115,6 +115,7 @@
     </com.google.android.material.button.MaterialButtonToggleGroup>
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_calculate"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
@@ -128,6 +129,7 @@
         android:id="@+id/bottom_navigation"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:background="?attr/android:windowBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
