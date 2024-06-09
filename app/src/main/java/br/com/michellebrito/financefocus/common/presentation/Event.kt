@@ -1,4 +1,4 @@
-package br.com.michellebrito.financefocus.util.event
+package br.com.michellebrito.financefocus.common.presentation
 
 open class Event<out T>(private val content: T) {
 

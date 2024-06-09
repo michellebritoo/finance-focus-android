@@ -4,7 +4,7 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import br.com.michellebrito.financefocus.util.event.Event
+import br.com.michellebrito.financefocus.common.presentation.Event
 
 class SignUpEmailViewModel : ViewModel() {
     private val _viewState = MutableLiveData<Event<SignUpEmailEvent>>()
@@ -14,7 +14,7 @@ class SignUpEmailViewModel : ViewModel() {
         when {
             isEmailValid(email).not() -> return sendUIEvent(SignUpEmailEvent.EmailInvalid)
             isEmailValid(confirmEmail).not() -> return sendUIEvent(SignUpEmailEvent.ConfirmEmailInvalid)
-            (email == confirmEmail).not() -> return sendUIEvent(SignUpEmailEvent.EmailNotEquals)
+            (email.trim() == confirmEmail.trim()).not() -> return sendUIEvent(SignUpEmailEvent.EmailNotEquals)
             else -> sendUIEvent(SignUpEmailEvent.ValidateSuccess)
         }
     }
