@@ -3,6 +3,7 @@ package br.com.michellebrito.financefocus.common.data
 import android.content.Context
 import android.content.SharedPreferences
 import br.com.michellebrito.financefocus.common.domain.PreferenceStorage
+import br.com.michellebrito.financefocus.util.extensions.orEmpty
 
 class PreferencesStorageImpl(context: Context) : PreferenceStorage {
     private val sharedPreferences: SharedPreferences = context.getSharedPreferences(
@@ -22,7 +23,7 @@ class PreferencesStorageImpl(context: Context) : PreferenceStorage {
     }
 
     override fun getString(key: String): String {
-        return sharedPreferences.getString(key, null) ?: ""
+        return sharedPreferences.getString(key, null).orEmpty()
     }
 
     private companion object {
