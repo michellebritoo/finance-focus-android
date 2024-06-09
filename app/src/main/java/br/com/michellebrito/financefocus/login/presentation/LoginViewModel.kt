@@ -13,7 +13,7 @@ class LoginViewModel(private val repository: LoginRepository): ViewModel() {
 
     fun onLoginPressed(email: String, password: String) {
         viewModelScope.launch {
-            repository.authWithEmailAndPassword(email, password) { result ->
+            repository.authWithEmailAndPassword(email.trim(), password.trim()) { result ->
                 _loginResult.value = result
             }
         }
