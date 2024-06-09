@@ -29,7 +29,11 @@
     <fragment
         android:id="@+id/signUpPasswordStepFragment"
         android:name="br.com.michellebrito.financefocus.signup.presentation.passwordstep.SignUpPasswordStepFragment"
-        android:label="SignUpPasswordStepFragment" />
+        android:label="SignUpPasswordStepFragment">
+        <argument
+            android:name="email"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/loginFragment"
         android:name="br.com.michellebrito.financefocus.login.presentation.LoginFragment"

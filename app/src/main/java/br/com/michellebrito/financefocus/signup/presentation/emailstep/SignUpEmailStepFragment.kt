@@ -33,13 +33,16 @@ class SignUpEmailStepFragment : Fragment(R.layout.fragment_sign_up_email_step) {
     }
 
     private fun setupObservers() {
-        viewModel.viewState.observe(viewLifecycleOwner) { state ->
-            when (state) {
-                is SignUpEmailEvent.EmailInvalid -> showEmailInvalidFeedback()
-                is SignUpEmailEvent.ConfirmEmailInvalid -> showConfirmEmailInvalidFeedback()
-                is SignUpEmailEvent.EmailNotEquals -> showEmailNotEqualsFeedback()
-                is SignUpEmailEvent.ValidateSuccess -> goToNextStep()
+        viewModel.viewState.observe(viewLifecycleOwner) { event ->
+            event.getContentIfNotHandled()?.let { state ->
+                when (state) {
+                    is SignUpEmailEvent.EmailInvalid -> showEmailInvalidFeedback()
+                    is SignUpEmailEvent.ConfirmEmailInvalid -> showConfirmEmailInvalidFeedback()
+                    is SignUpEmailEvent.EmailNotEquals -> showEmailNotEqualsFeedback()
+                    is SignUpEmailEvent.ValidateSuccess -> goToNextStep()
+                }
             }
+
         }
     }
 
@@ -61,6 +64,8 @@ class SignUpEmailStepFragment : Fragment(R.layout.fragment_sign_up_email_step) {
     }
 
     private fun goToNextStep() {
-        findNavController().navigate(R.id.signUpStepEmailToStepPassword)
+        val email = binding.tilEmail.editText?.text?.toString().orEmpty().trim()
+        val action = SignUpEmailStepFragmentDirections.signUpStepEmailToStepPassword(email)
+        findNavController().navigate(action)
     }
 }

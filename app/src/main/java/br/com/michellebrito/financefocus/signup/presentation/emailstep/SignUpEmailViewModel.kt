@@ -4,10 +4,11 @@ import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.com.michellebrito.financefocus.util.event.Event
 
 class SignUpEmailViewModel : ViewModel() {
-    private val _viewState = MutableLiveData<SignUpEmailEvent>()
-    val viewState: LiveData<SignUpEmailEvent> get() = _viewState
+    private val _viewState = MutableLiveData<Event<SignUpEmailEvent>>()
+    val viewState: LiveData<Event<SignUpEmailEvent>> get() = _viewState
 
     fun onContinueButtonPressed(email: String, confirmEmail: String) {
         when {
@@ -23,6 +24,6 @@ class SignUpEmailViewModel : ViewModel() {
     }
 
     private fun sendUIEvent(event: SignUpEmailEvent) {
-        _viewState.value = event
+        _viewState.value = Event(event)
     }
 }
