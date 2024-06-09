@@ -23,7 +23,10 @@
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="btn_login_registre_your_account">Não tem uma conta? <b>Registre-se</b></string>
     <string name="login_failure_message">Ops! Verifique se seu e-mail e senha estão corretos.</string>
-    <string name="login_failure_empty_message">Por favor, informe um e-mail e senha.</string>
+    <string name="login_failure_incorrect_email">Verifique seu e-mail</string>
+    <string name="login_failure_incorrect_password">Verifique sua senha</string>
+    <string name="login_failure_invalid_email">Informe um e-mail válido</string>
+    <string name="login_failure_invalid_password">Informe a senha</string>
 
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
