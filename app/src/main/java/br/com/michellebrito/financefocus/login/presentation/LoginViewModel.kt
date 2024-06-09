@@ -31,8 +31,8 @@ class LoginViewModel(private val repository: LoginRepository) : ViewModel() {
     }
 
     private fun authWithEmailAndPassword(email: String, password: String) {
-        sendUIEvent(LoginEvent.ShowLoading)
         viewModelScope.launch {
+            sendUIEvent(LoginEvent.ShowLoading)
             repository.authWithEmailAndPassword(email, password) { result ->
                 sendUIEvent(LoginEvent.LoginResult(result))
                 sendUIEvent(LoginEvent.HideLoading)
