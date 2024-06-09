@@ -22,6 +22,7 @@
     <string name="type_your_password">Digite sua senha</string>
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="btn_login_registre_your_account">Não tem uma conta? <b>Registre-se</b></string>
+    <string name="login_failure_message">Ops! E-mail ou senha incorreta</string>
 
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
