@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpFragment"
-        android:name="br.com.michellebrito.financefocus.signup.email.presentation.SignUpEmailStepFragment"
+        android:name="br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailStepFragment"
         android:label="fragment_sign_up"
         tools:layout="@layout/fragment_sign_up_email_step" >
         <action
@@ -28,7 +28,7 @@
     </fragment>
     <fragment
         android:id="@+id/signUpPasswordStepFragment"
-        android:name="br.com.michellebrito.financefocus.signup.password.presentation.SignUpPasswordStepFragment"
+        android:name="br.com.michellebrito.financefocus.signup.presentation.passwordstep.SignUpPasswordStepFragment"
         android:label="SignUpPasswordStepFragment" />
     <fragment
         android:id="@+id/loginFragment"

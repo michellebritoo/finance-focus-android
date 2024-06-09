@@ -7,6 +7,7 @@ import br.com.michellebrito.financefocus.goal.create.createsecondstep.presentati
 import br.com.michellebrito.financefocus.login.data.LoginRepositoryImpl
 import br.com.michellebrito.financefocus.login.domain.LoginRepository
 import br.com.michellebrito.financefocus.login.presentation.LoginViewModel
+import br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailViewModel
 import br.com.michellebrito.financefocus.welcome.data.WelcomeRepositoryImpl
 import br.com.michellebrito.financefocus.welcome.domain.WelcomeRepository
 import br.com.michellebrito.financefocus.welcome.presentation.WelcomeViewModel
@@ -21,6 +22,7 @@ val AppModule = module {
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { SignUpEmailViewModel() }
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel() }
 }
