@@ -9,12 +9,17 @@
     <string name="type_your_email_description">Para começar, informe seu email</string>
     <string name="type_your_email">Digite seu email</string>
     <string name="confirm_your_email">Confirme seu email</string>
+    <string name="signup_failure_invalid_email">Informe um e-mail válido.</string>
+    <string name="signup_failure_not_equals_email">O e-mail é diferente do anterior.</string>
 
     <!-- signup password step -->
     <string name="type_your_password_title">Estamos quase lá!</string>
     <string name="type_your_password_description">Agora crie sua senha</string>
     <string name="create_your_password">Crie sua senha</string>
     <string name="confirm_your_password">Confirme sua senha</string>
+    <string name="signup_confirm_failure_generic">Ops! Não foi possível concluir, tente com uma conta diferente.</string>
+    <string name="signup_failure_invalid_password">Informe uma senha válida de ao menos oito dígitos.</string>
+    <string name="signup_failure_not_equals_password">A senha é diferente da anterior.</string>
 
     <!-- login -->
     <string name="login_title">Bem vindo de volta</string>
@@ -22,6 +27,11 @@
     <string name="type_your_password">Digite sua senha</string>
     <string name="forgot_password">Esqueceu a senha?</string>
     <string name="btn_login_registre_your_account">Não tem uma conta? <b>Registre-se</b></string>
+    <string name="login_failure_message">Ops! Verifique se seu e-mail e senha estão corretos.</string>
+    <string name="login_failure_incorrect_email">Verifique seu e-mail</string>
+    <string name="login_failure_incorrect_password">Verifique sua senha</string>
+    <string name="login_failure_invalid_email">Informe um e-mail válido</string>
+    <string name="login_failure_invalid_password">Informe a senha</string>
 
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
