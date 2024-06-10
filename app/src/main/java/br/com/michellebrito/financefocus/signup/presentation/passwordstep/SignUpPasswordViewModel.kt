@@ -20,7 +20,7 @@ class SignUpPasswordViewModel(private val repository: SignUpRepository) : ViewMo
         when {
             isPasswordValid(password.trim()).not() -> return sendUIEvent(SignUpPasswordEvent.PasswordInvalid)
             isPasswordValid(confirmPassword.trim()).not() -> return sendUIEvent(SignUpPasswordEvent.ConfirmPasswordInvalid)
-            (password != confirmPassword) -> return sendUIEvent(SignUpPasswordEvent.PasswordNotEquals)
+            (password.trim() != confirmPassword.trim()) -> return sendUIEvent(SignUpPasswordEvent.PasswordNotEquals)
             else -> createNewAccount(email, password)
         }
     }
