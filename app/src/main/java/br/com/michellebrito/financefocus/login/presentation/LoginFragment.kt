@@ -24,6 +24,7 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
     private fun setupListeners() = with(binding) {
         tvCreateAccount.setOnClickListener { findNavController().navigate(R.id.loginToSignUp) }
         btnLogin.setOnClickListener { onLoginButtonClicked() }
+        tvCreateAccount.setOnClickListener { navigateToSignUp() }
         tilEmail.editText?.addTextChangedListener { tilEmail.error = null }
         tilPassword.editText?.addTextChangedListener { tilPassword.error = null }
     }
@@ -56,6 +57,10 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
 
     private fun navigateToHome() {
         findNavController().navigate(R.id.loginToHome)
+    }
+
+    private fun navigateToSignUp() {
+        findNavController().navigate(R.id.signUpFragment)
     }
 
     private fun clearErrorState() = with(binding) {
