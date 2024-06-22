@@ -33,6 +33,11 @@
     <string name="login_failure_invalid_email">Informe um e-mail válido</string>
     <string name="login_failure_invalid_password">Informe a senha</string>
 
+    <!-- Password recovery -->
+    <string name="btn_password_recovery">Recuperar senha</string>
+    <string name="password_recovery_title">Vamos recuperar sua senha</string>
+    <string name="password_recovery_description">Você receberá por e-mail as instruções para recuperar sua senha</string>
+
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
     <string name="btn_create_goal">Cadastrar objetivo</string>
