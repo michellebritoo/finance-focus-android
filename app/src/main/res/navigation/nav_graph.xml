@@ -121,4 +121,8 @@
         android:name="br.com.michellebrito.financefocus.profile.presentation.ProfileFragment"
         android:label="fragment_profile"
         tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/passwordRecoveryFragment"
+        android:name="br.com.michellebrito.financefocus.passwordrecovery.presentation.PasswordRecoveryFragment"
+        android:label="PasswordRecoveryFragment" />
 </navigation>
