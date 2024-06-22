@@ -2,6 +2,7 @@ package br.com.michellebrito.financefocus.passwordrecovery.presentation
 
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentPasswordRecoveryBinding
@@ -21,6 +22,7 @@ class PasswordRecoveryFragment : Fragment(R.layout.fragment_password_recovery) {
 
     private fun setupListeners() = with(binding) {
         tilEmail.editText?.addTextChangedListener { tilEmail.error = null }
+        topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         btnPasswordRecovery.setOnClickListener {
             viewModel.onContinueButtonPressed(tilEmail.editText?.text.toString())
         }
