@@ -37,6 +37,8 @@
     <string name="btn_password_recovery">Recuperar senha</string>
     <string name="password_recovery_title">Vamos recuperar sua senha</string>
     <string name="password_recovery_description">Você receberá por e-mail as instruções para recuperar sua senha</string>
+    <string name="password_recovery_send_success">Sucesso! Confira no seu email as orientações para recuperar sua senha.</string>
+    <string name="password_recovery_error">Ops! Não foi possível concluir, tente novamente.</string>
 
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
