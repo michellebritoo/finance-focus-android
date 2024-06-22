@@ -1,5 +1,7 @@
 package br.com.michellebrito.financefocus.login.presentation
 
+import android.text.SpannableString
+import android.text.style.UnderlineSpan
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
@@ -19,10 +21,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
         super.onResume()
         setupListeners()
         setupObservers()
+        setupView()
     }
 
     private fun setupListeners() = with(binding) {
         tvCreateAccount.setOnClickListener { findNavController().navigate(R.id.loginToSignUp) }
+        tvForgotPassword.setOnClickListener { findNavController().navigate(R.id.passwordRecoveryFragment) }
         btnLogin.setOnClickListener { onLoginButtonClicked() }
         tvCreateAccount.setOnClickListener { navigateToSignUp() }
         tilEmail.editText?.addTextChangedListener { tilEmail.error = null }
@@ -39,6 +43,12 @@ class LoginFragment : Fragment(R.layout.fragment_login) {
                 is LoginEvent.LoginResult -> onLoginResult(isSuccess = state.isSuccess)
             }
         }
+    }
+
+    private fun setupView() {
+        val content = SpannableString(getString(R.string.forgot_password))
+        content.setSpan(UnderlineSpan(), 0, content.length, 0)
+        binding.tvForgotPassword.text = content
     }
 
     private fun onLoginButtonClicked() = with(binding) {

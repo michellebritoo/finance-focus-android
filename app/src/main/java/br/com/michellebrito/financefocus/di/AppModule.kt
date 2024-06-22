@@ -7,6 +7,9 @@ import br.com.michellebrito.financefocus.goal.create.createsecondstep.presentati
 import br.com.michellebrito.financefocus.login.data.LoginRepositoryImpl
 import br.com.michellebrito.financefocus.login.domain.LoginRepository
 import br.com.michellebrito.financefocus.login.presentation.LoginViewModel
+import br.com.michellebrito.financefocus.passwordrecovery.data.PasswordRepositoryImpl
+import br.com.michellebrito.financefocus.passwordrecovery.domain.PasswordRecoveryRepository
+import br.com.michellebrito.financefocus.passwordrecovery.presentation.PasswordRecoveryViewModel
 import br.com.michellebrito.financefocus.signup.data.SignUpRepositoryImpl
 import br.com.michellebrito.financefocus.signup.domain.SignUpRepository
 import br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailViewModel
@@ -23,9 +26,11 @@ val AppModule = module {
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
     factory<SignUpRepository> { SignUpRepositoryImpl(get()) }
+    factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
+    viewModel { PasswordRecoveryViewModel(get()) }
     viewModel { SignUpEmailViewModel() }
     viewModel { SignUpPasswordViewModel(get()) }
     viewModel { CreateGoalViewModel() }
