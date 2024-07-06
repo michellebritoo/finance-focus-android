@@ -30,11 +30,20 @@ class LoginRepositoryImpl(private val preferenceStorage: PreferenceStorage) : Lo
             IS_LOGGED.plus(task.result.user?.uid),
             task.isSuccessful
         )
-        task.result.user?.let { preferenceStorage.putString(CURRENT_USER, it.uid) }
+        task.result.user?.let { firebaseUser ->
+            preferenceStorage.putString(CURRENT_USER, firebaseUser.uid)
+
+            firebaseUser.getIdToken(true).addOnCompleteListener {
+                if (it.isSuccessful) {
+                    preferenceStorage.putString(TOKEN, it.result.token.orEmpty())
+                }
+            }
+        }
     }
 
     private companion object {
         const val IS_LOGGED = "is_logged"
         const val CURRENT_USER = "current_user"
+        const val TOKEN = "token"
     }
 }
