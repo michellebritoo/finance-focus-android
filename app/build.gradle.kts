@@ -64,6 +64,7 @@ dependencies {
     implementation("com.github.mancj:SlimChart:0.1.2")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    implementation("com.google.firebase:firebase-messaging:24.0.0")
 
     testImplementation("junit:junit:4.13.2")
 
