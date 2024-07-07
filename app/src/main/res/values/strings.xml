@@ -3,6 +3,7 @@
     <string name="btn_login">Login</string>
     <string name="btn_create_account">Criar conta</string>
     <string name="btn_continue">Continuar</string>
+    <string name="in_dev_explanation">Ops! Essa feature ainda esta em desenvolvimento. Tente novamente no futuro.</string>
 
     <!-- signup email step -->
     <string name="type_your_email_title">Vamos criar sua conta!</string>
