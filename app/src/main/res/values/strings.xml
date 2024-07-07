@@ -110,4 +110,8 @@
     <string name="profile_edit_details">Editar informações</string>
     <string name="profile_delete_account">Deletar conta</string>
     <string name="profile_salutation">Olá, %s</string>
+    <string name="profile_email">Email: %s</string>
+    <string name="profile_notification">Receber notificações: sim</string>
+    <string name="profile_goals">Objetivos alcançados: %s</string>
+    <string name="profile_rates">Taxas de juros calculadas: %s</string>
 </resources>
