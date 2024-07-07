@@ -6,6 +6,7 @@ import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentProfileBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import com.google.android.material.snackbar.Snackbar
 import org.koin.android.ext.android.inject
 
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
@@ -21,6 +22,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        btnEditDetails.setOnClickListener { showInDevInfo() }
+        btnDeleteAccount.setOnClickListener { showInDevInfo() }
 
         bottomNavigation.selectedItemId = R.id.item_profile
         bottomNavigation.setOnItemSelectedListener {
@@ -52,10 +55,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun hideLoading() = (requireActivity() as MainActivity).hideLoading()
 
-    private fun showError() {
-        //task 35
-    }
-
     private fun showUserInfo(name: String, email: String, goals: String, rates: String) {
         with(binding) {
             tvSalutation.text = getString(R.string.profile_salutation, name)
@@ -63,6 +62,16 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
             tdNotifications.setText(getString(R.string.profile_notification))
             tdGoals.setText(getString(R.string.profile_goals, goals))
             tdRates.setText(getString(R.string.profile_rates, rates))
+        }
+    }
+
+    private fun showError() {
+        //task 35
+    }
+
+    private fun showInDevInfo() {
+        this@ProfileFragment.view?.let {
+            Snackbar.make(it, R.string.in_dev_explanation, Snackbar.LENGTH_LONG).show()
         }
     }
 }
