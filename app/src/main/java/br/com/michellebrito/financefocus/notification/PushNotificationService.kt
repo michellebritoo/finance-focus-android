@@ -12,7 +12,7 @@ import br.com.michellebrito.financefocus.R
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 
-class PushNotificationService: FirebaseMessagingService() {
+class PushNotificationService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
         super.onNewToken(token)
@@ -26,8 +26,9 @@ class PushNotificationService: FirebaseMessagingService() {
 
         notificationTitle?.let { title ->
             notificationBody?.let { message ->
-                if (title.isNotBlank() && notificationBody.isNotBlank())
-                showNotification(title, message)
+                if (title.isNotBlank() && notificationBody.isNotBlank()) {
+                    showNotification(title, message)
+                }
             }
         }
     }
