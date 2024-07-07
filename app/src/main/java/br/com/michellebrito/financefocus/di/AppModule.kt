@@ -5,6 +5,10 @@ import br.com.michellebrito.financefocus.common.data.retrofit.RetrofitInstance
 import br.com.michellebrito.financefocus.common.domain.PreferenceStorage
 import br.com.michellebrito.financefocus.goal.create.createfirststep.presentation.CreateGoalViewModel
 import br.com.michellebrito.financefocus.goal.create.createsecondstep.presentation.CreateGoalSecondStepViewModel
+import br.com.michellebrito.financefocus.home.data.HomeClient
+import br.com.michellebrito.financefocus.home.data.HomeRepositoryImpl
+import br.com.michellebrito.financefocus.home.domain.HomeRepository
+import br.com.michellebrito.financefocus.home.presentation.HomeViewModel
 import br.com.michellebrito.financefocus.login.data.LoginRepositoryImpl
 import br.com.michellebrito.financefocus.login.domain.LoginRepository
 import br.com.michellebrito.financefocus.login.presentation.LoginViewModel
@@ -19,7 +23,6 @@ import br.com.michellebrito.financefocus.signup.data.SignUpRepositoryImpl
 import br.com.michellebrito.financefocus.signup.domain.SignUpRepository
 import br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailViewModel
 import br.com.michellebrito.financefocus.signup.presentation.passwordstep.SignUpPasswordViewModel
-import br.com.michellebrito.financefocus.welcome.data.WelcomeClient
 import br.com.michellebrito.financefocus.welcome.data.WelcomeRepositoryImpl
 import br.com.michellebrito.financefocus.welcome.domain.WelcomeRepository
 import br.com.michellebrito.financefocus.welcome.presentation.WelcomeViewModel
@@ -29,11 +32,12 @@ import org.koin.dsl.module
 val AppModule = module {
     single<PreferenceStorage> { PreferencesStorageImpl(get()) }
 
-    factory { RetrofitInstance.getInstance().create(WelcomeClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(HomeClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ProfileClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
-    factory<WelcomeRepository> { WelcomeRepositoryImpl(get(), get()) }
+    factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
+    factory<HomeRepository> { HomeRepositoryImpl(get(), get()) }
     factory<SignUpRepository> { SignUpRepositoryImpl(get()) }
     factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
@@ -43,6 +47,7 @@ val AppModule = module {
     viewModel { PasswordRecoveryViewModel(get()) }
     viewModel { SignUpEmailViewModel() }
     viewModel { SignUpPasswordViewModel(get()) }
+    viewModel { HomeViewModel(get()) }
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel() }
     viewModel { ProfileFragmentViewModel(get()) }
