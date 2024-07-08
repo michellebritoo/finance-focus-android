@@ -19,6 +19,9 @@ import br.com.michellebrito.financefocus.profile.data.ProfileClient
 import br.com.michellebrito.financefocus.profile.data.ProfileRepositoryImpl
 import br.com.michellebrito.financefocus.profile.domain.ProfileRepository
 import br.com.michellebrito.financefocus.profile.presentation.ProfileFragmentViewModel
+import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesClient
+import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesRepositoryImpl
+import br.com.michellebrito.financefocus.rates.calculate.domain.CalculateRatesRepository
 import br.com.michellebrito.financefocus.rates.calculate.presentation.CalculateRatesViewModel
 import br.com.michellebrito.financefocus.signup.data.SignUpRepositoryImpl
 import br.com.michellebrito.financefocus.signup.domain.SignUpRepository
@@ -35,10 +38,12 @@ val AppModule = module {
 
     factory { RetrofitInstance.getInstance().create(HomeClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ProfileClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(CalculateRatesClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
     factory<HomeRepository> { HomeRepositoryImpl(get(), get()) }
+    factory<CalculateRatesRepository> { CalculateRatesRepositoryImpl(get(), get()) }
     factory<SignUpRepository> { SignUpRepositoryImpl(get()) }
     factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
@@ -49,7 +54,7 @@ val AppModule = module {
     viewModel { SignUpEmailViewModel() }
     viewModel { SignUpPasswordViewModel(get()) }
     viewModel { HomeViewModel(get()) }
-    viewModel { CalculateRatesViewModel() }
+    viewModel { CalculateRatesViewModel(get()) }
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel() }
     viewModel { ProfileFragmentViewModel(get()) }
