@@ -94,10 +94,15 @@
     <string name="calculate_rate_value_hint">Valor</string>
     <string name="calculate_rate_value_placeholder">Informe o valor</string>
     <string name="calculate_rate_hint">Taxa</string>
+    <string name="calculate_rate_placeholder_percent">%</string>
     <string name="calculate_rate_placeholder">Informe a taxa de juros</string>
     <string name="calculate_rate_month">Ao mês</string>
     <string name="calculate_rate_year">Ao ano</string>
     <string name="calculate_rates_button_calculate">Calcular</string>
+    <string name="calculate_rates_vehicle_option">Taxa de juros para aquisição de veículos</string>
+    <string name="calculate_rates_house_option">Taxa de juros para aquisição de imóveis</string>
+    <string name="calculate_rates_other_option">Taxa de juros para aquisição de outros bens</string>
+    <string name="calculate_rates_credit_option">Taxa de juros das operações de crédito em geral</string>
 
     <!-- calculate rates result -->
     <string name="rates_result_title">Taxa de juros calculada</string>
