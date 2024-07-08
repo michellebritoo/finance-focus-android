@@ -43,7 +43,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
-        android:layout_marginTop="@dimen/margin_sixty"
+        android:layout_marginTop="@dimen/margin_twenty_four"
         android:hint="@string/calculate_rate_value_placeholder"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +84,26 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_period"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        android:hint="@string/calculate_rate_period_hint"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_rate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_period"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
     <com.google.android.material.button.MaterialButtonToggleGroup
         android:id="@+id/tg_rates_frequency"
         android:layout_width="match_parent"
@@ -93,7 +113,7 @@
         app:checkedButton="@id/btn_frequency_month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_rate"
+        app:layout_constraintTop_toBottomOf="@id/til_period"
         app:singleSelection="true">
 
         <Button

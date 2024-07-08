@@ -96,6 +96,7 @@
     <string name="calculate_rate_hint">Taxa</string>
     <string name="calculate_rate_placeholder_percent">%</string>
     <string name="calculate_rate_placeholder">Informe a taxa de juros</string>
+    <string name="calculate_rate_period_hint">Informe o período de tempo (meses/anos)</string>
     <string name="calculate_rate_month">Ao mês</string>
     <string name="calculate_rate_year">Ao ano</string>
     <string name="calculate_rates_button_calculate">Calcular</string>

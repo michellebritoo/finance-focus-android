@@ -33,9 +33,17 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     }
 
     private fun calculateRatesButtonClicked() = with(binding) {
-//        viewModel.calculateRates(
-//
-//        )
+        val formattedValueWithoutMask = binding.etValue.text?.replace("[^0-9.]".toRegex(), "")
+        val formattedRateWithoutMask = binding.etRate.text?.replace("[^0-9.]".toRegex(), "")
+        val formattedPeriodWithoutMask = binding.etPeriod.text?.replace("[^0-9.]".toRegex(), "")
+        val byMonth = binding.btnFrequencyMonth.isSelected
+        viewModel.calculateRates(
+            (formattedValueWithoutMask?.toDouble()) ?: 0.0,
+            (formattedRateWithoutMask?.toDouble()) ?: 0.0,
+            (formattedPeriodWithoutMask?.toInt()) ?: 1,
+            binding.spinnerOptions.selectedItemId.toInt().inc(),
+            byMonth
+        )
     }
 
     private fun setupOptions() {
