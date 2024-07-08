@@ -56,9 +56,9 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     }
 
     private fun calculateRatesButtonClicked() = with(binding) {
-        val formattedValueWithoutMask = binding.etValue.text?.replace("[^0-9.]".toRegex(), "")
-        val formattedRateWithoutMask = binding.etRate.text?.replace("[^0-9.]".toRegex(), "")
-        val formattedPeriodWithoutMask = binding.etPeriod.text?.replace("[^0-9.]".toRegex(), "")
+        val formattedValueWithoutMask = binding.etValue.text?.toString()?.replace("[^\\d,]".toRegex(), "")?.replace(",", ".")
+        val formattedRateWithoutMask = binding.etRate.text?.toString()?.replace("[^\\d,]".toRegex(), "")?.replace(",", ".")
+        val formattedPeriodWithoutMask = binding.etPeriod.text?.toString()?.replace("[^\\d]".toRegex(), "")
         val byMonth = binding.btnFrequencyMonth.isSelected
         viewModel.calculateRates(
             (formattedValueWithoutMask?.toDouble()) ?: 0.0,
