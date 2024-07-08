@@ -1,22 +1,27 @@
 package br.com.michellebrito.financefocus.rates.calculate.presentation
 
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentCalculateRatesBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
+import org.koin.android.ext.android.inject
+
 
 class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     private val binding: FragmentCalculateRatesBinding by viewBinding()
+    private val viewModel: CalculateRatesViewModel by inject()
 
     override fun onResume() {
         super.onResume()
         setupListeners()
+        setupOptions()
     }
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
-        btnCalculate.setOnClickListener { findNavController().navigate(R.id.calculateRatesToCalculateRatesResult) }
+        btnCalculate.setOnClickListener { calculateRatesButtonClicked() }
         bottomNavigation.selectedItemId = R.id.item_rates
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -26,5 +31,29 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
             true
         }
     }
-}
 
+    private fun calculateRatesButtonClicked() = with(binding) {
+//        viewModel.calculateRates(
+//
+//        )
+    }
+
+    private fun setupOptions() {
+        val items = listOf(
+            getString(R.string.calculate_rates_vehicle_option),
+            getString(R.string.calculate_rates_house_option),
+            getString(R.string.calculate_rates_other_option),
+            getString(R.string.calculate_rates_credit_option),
+        )
+
+        val adapter: ArrayAdapter<String> = ArrayAdapter(
+            requireContext(),
+            android.R.layout.simple_spinner_dropdown_item,
+            items
+        )
+
+        binding.spinnerOptions.adapter = adapter
+    }
+
+    private fun goToResult() = findNavController().navigate(R.id.calculateRatesToCalculateRatesResult)
+}
