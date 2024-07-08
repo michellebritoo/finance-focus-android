@@ -60,6 +60,7 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.redmadrobot:input-mask-android:7.2.4")
+    implementation("io.github.vicmikhailau:MaskedEditText:5.0.2")
     implementation("com.github.PhilJay:MPAndroidChart:v3.1.0")
     implementation("com.github.mancj:SlimChart:0.1.2")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")

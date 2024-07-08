@@ -19,6 +19,7 @@ import br.com.michellebrito.financefocus.profile.data.ProfileClient
 import br.com.michellebrito.financefocus.profile.data.ProfileRepositoryImpl
 import br.com.michellebrito.financefocus.profile.domain.ProfileRepository
 import br.com.michellebrito.financefocus.profile.presentation.ProfileFragmentViewModel
+import br.com.michellebrito.financefocus.rates.calculate.presentation.CalculateRatesViewModel
 import br.com.michellebrito.financefocus.signup.data.SignUpRepositoryImpl
 import br.com.michellebrito.financefocus.signup.domain.SignUpRepository
 import br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailViewModel
@@ -48,6 +49,7 @@ val AppModule = module {
     viewModel { SignUpEmailViewModel() }
     viewModel { SignUpPasswordViewModel(get()) }
     viewModel { HomeViewModel(get()) }
+    viewModel { CalculateRatesViewModel() }
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel() }
     viewModel { ProfileFragmentViewModel(get()) }
