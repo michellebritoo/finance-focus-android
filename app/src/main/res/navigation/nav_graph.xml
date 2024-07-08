@@ -113,9 +113,17 @@
     </fragment>
     <fragment
         android:id="@+id/calculateRatesResultFragment"
-        android:name="br.com.michellebrito.financefocus.rates.result.CalculateRatesResultFragment"
+        android:name="br.com.michellebrito.financefocus.rates.result.presentation.CalculateRatesResultFragment"
         android:label="fragment_calculate_rates_result"
-        tools:layout="@layout/fragment_calculate_rates_result" />
+        tools:layout="@layout/fragment_calculate_rates_result">
+        <argument
+            android:name="calculateRatesResponse"
+            app:argType="string" />
+        <argument
+            android:name="byMonth"
+            app:argType="boolean"
+            android:defaultValue="false" />
+    </fragment>
     <fragment
         android:id="@+id/profileFragment"
         android:name="br.com.michellebrito.financefocus.profile.presentation.ProfileFragment"

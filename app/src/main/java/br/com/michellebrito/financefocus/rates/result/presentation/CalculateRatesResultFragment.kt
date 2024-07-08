@@ -1,24 +1,40 @@
-package br.com.michellebrito.financefocus.rates.result
+package br.com.michellebrito.financefocus.rates.result.presentation
 
 import android.graphics.Color
+import android.os.Bundle
+import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentCalculateRatesResultBinding
+import br.com.michellebrito.financefocus.rates.calculate.domain.CalculateRatesResponse
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.Entry
 import com.github.mikephil.charting.data.LineData
 import com.github.mikephil.charting.data.LineDataSet
 import com.github.mikephil.charting.interfaces.datasets.ILineDataSet
+import com.google.gson.Gson
 
 class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_result) {
     private val binding: FragmentCalculateRatesResultBinding by viewBinding()
+    private lateinit var responseModel: CalculateRatesResponse
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        val args = arguments?.let {
+            CalculateRatesResultFragmentArgs.fromBundle(it)
+        }
+        responseModel = Gson().fromJson(
+            args?.calculateRatesResponse,
+            CalculateRatesResponse::class.java
+        )
+    }
 
     override fun onResume() {
         super.onResume()
         setupListeners()
-        showMockResult()
+        showResult()
     }
 
     private fun setupListeners() = with(binding) {
@@ -33,26 +49,23 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
         }
     }
 
-    private fun showMockResult() = with(binding) {
-        binding.infoValue.setText(
-            getString(R.string.rates_result_info_value, String.format("%.2f", 100f))
-        )
+    private fun showResult() = with(binding) {
+        infoValue.setText(getString(R.string.rates_result_info_value, responseModel.amount))
+        infoRate.setText(getString(R.string.rates_result_info_rate, responseModel.rateValue))
+        infoValueRate.setText(getString(R.string.rates_result_info_value_rate, responseModel.totalValueWithRate))
+        infoPartValue.setText(getString(R.string.rates_result_info_part_rate, responseModel.partValue))
+        infoGlobalRate.setText(responseModel.status)
 
-        binding.infoRate.setText(
-            getString(R.string.rates_result_info_rate, "10%")
+        showChartData(
+            responseModel.amount.replace("[^\\d,]".toRegex(), "").replace(",", ".").toFloat(),
+            responseModel.totalValueWithRate.replace("[^\\d,]".toRegex(), "").replace(",", ".").toFloat()
         )
-
-        binding.infoValueRate.setText(
-            getString(R.string.rates_result_info_value_rate, String.format("%.2f", 110f))
-        )
-
-        showMockChartData()
     }
 
-    private fun showMockChartData() = with(binding) {
-        val yValueWithInterest = 1.10f
+    private fun showChartData(value: Float, totalValue: Float) = with(binding) {
+        val yValueWithInterest = value/1000
 
-        val yValueWithoutInterest = 1.00f
+        val yValueWithoutInterest = totalValue/1000
 
         val entriesWithInterest = mutableListOf(
             Entry(0f, yValueWithoutInterest),

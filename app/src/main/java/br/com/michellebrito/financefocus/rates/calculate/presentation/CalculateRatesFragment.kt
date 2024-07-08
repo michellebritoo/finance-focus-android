@@ -6,8 +6,10 @@ import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentCalculateRatesBinding
+import br.com.michellebrito.financefocus.rates.calculate.domain.CalculateRatesResponse
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.gson.Gson
 import org.koin.android.ext.android.inject
 
 class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
@@ -39,7 +41,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
             when(state) {
                 is CalculateRatesEvent.ShowLoading -> showLoading()
                 is CalculateRatesEvent.HideLoading -> hideLoading()
-                is CalculateRatesEvent.GoToResultScreen -> goToResult()
+                is CalculateRatesEvent.GoToResultScreen -> goToResult(state.model)
                 is CalculateRatesEvent.ShowError -> showError()
             }
         }
@@ -70,6 +72,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     }
 
     private fun setupOptions() {
+        binding.btnFrequencyMonth.isSelected = true
         val items = listOf(
             getString(R.string.calculate_rates_vehicle_option),
             getString(R.string.calculate_rates_house_option),
@@ -86,7 +89,12 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
         binding.spinnerOptions.adapter = adapter
     }
 
-    private fun goToResult() {
-        findNavController().navigate(R.id.calculateRatesToCalculateRatesResult)
+    private fun goToResult(model: CalculateRatesResponse) {
+        val json = Gson().toJson(model)
+        val action = CalculateRatesFragmentDirections.calculateRatesToCalculateRatesResult(
+            json,
+            binding.btnFrequencyMonth.isSelected
+        )
+        findNavController().navigate(action)
     }
 }

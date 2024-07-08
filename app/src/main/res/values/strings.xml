@@ -111,6 +111,7 @@
     <string name="rates_result_info_value">Montante R$ %s</string>
     <string name="rates_result_info_rate">Taxa de juros: %s</string>
     <string name="rates_result_info_value_rate">Valor com juros: R$ %s</string>
+    <string name="rates_result_info_part_rate">Valor por parcela: R$ %s</string>
     <string name="rates_result_info_rate_general">A taxa de juros média do mercado para esse tipo de serviço é de %s</string>
 
     <!-- profile -->
