@@ -19,6 +19,7 @@ import com.google.gson.Gson
 class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_result) {
     private val binding: FragmentCalculateRatesResultBinding by viewBinding()
     private lateinit var responseModel: CalculateRatesResponse
+    private var byMonthRate = true
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -29,6 +30,7 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
             args?.calculateRatesResponse,
             CalculateRatesResponse::class.java
         )
+        byMonthRate = args?.byMonth ?: true
     }
 
     override fun onResume() {
@@ -51,7 +53,7 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
 
     private fun showResult() = with(binding) {
         infoValue.setText(getString(R.string.rates_result_info_value, responseModel.amount))
-        infoRate.setText(getString(R.string.rates_result_info_rate, responseModel.rateValue))
+        infoRate.setText(getString(R.string.rates_result_info_rate, formatByRate(responseModel.rateValue)))
         infoValueRate.setText(getString(R.string.rates_result_info_value_rate, responseModel.totalValueWithRate))
         infoPartValue.setText(getString(R.string.rates_result_info_part_rate, responseModel.partValue))
         infoGlobalRate.setText(responseModel.status)
@@ -63,20 +65,20 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
     }
 
     private fun showChartData(value: Float, totalValue: Float) = with(binding) {
-        val yValueWithInterest = value/1000
+        val yValueWithInterest = totalValue/1000
 
-        val yValueWithoutInterest = totalValue/1000
+        val yValueWithoutInterest = value/1000
 
         val entriesWithInterest = mutableListOf(
             Entry(0f, yValueWithoutInterest),
-            Entry(1f, yValueWithoutInterest),
-            Entry(2f, yValueWithoutInterest),
+            Entry(1f, yValueWithInterest),
+            Entry(2f, yValueWithInterest),
         )
 
         val entriesWithoutInterest = mutableListOf(
             Entry(0f, yValueWithoutInterest),
-            Entry(1f, yValueWithInterest),
-            Entry(2f, yValueWithInterest),
+            Entry(1f, yValueWithoutInterest),
+            Entry(2f, yValueWithoutInterest),
         )
 
         val dataSetWithInterest = LineDataSet(entriesWithInterest, "Com Juros")
@@ -104,5 +106,13 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
         chart.axisLeft.axisMaximum = 2f
 
         chart.invalidate()
+    }
+
+    private fun formatByRate(value: String): String {
+        return if (byMonthRate) {
+            value.plus(" a.m")
+        } else {
+            value.plus(" a.a")
+        }
     }
 }

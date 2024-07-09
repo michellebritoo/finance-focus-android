@@ -15,6 +15,7 @@ import org.koin.android.ext.android.inject
 class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     private val binding: FragmentCalculateRatesBinding by viewBinding()
     private val viewModel: CalculateRatesViewModel by inject()
+    private var isMonthSelected: Boolean = true
 
     override fun onResume() {
         super.onResume()
@@ -26,6 +27,8 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         btnCalculate.setOnClickListener { calculateRatesButtonClicked() }
+        btnFrequencyYear.setOnClickListener { isMonthSelected = false }
+        btnFrequencyMonth.setOnClickListener { isMonthSelected = true }
         bottomNavigation.selectedItemId = R.id.item_rates
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -61,18 +64,16 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
         val formattedValueWithoutMask = binding.etValue.text?.toString()?.replace("[^\\d,]".toRegex(), "")?.replace(",", ".")
         val formattedRateWithoutMask = binding.etRate.text?.toString()?.replace("[^\\d,]".toRegex(), "")?.replace(",", ".")
         val formattedPeriodWithoutMask = binding.etPeriod.text?.toString()?.replace("[^\\d]".toRegex(), "")
-        val byMonth = binding.btnFrequencyMonth.isSelected
         viewModel.calculateRates(
             (formattedValueWithoutMask?.toDouble()) ?: 0.0,
             (formattedRateWithoutMask?.toDouble()) ?: 0.0,
             (formattedPeriodWithoutMask?.toInt()) ?: 1,
             binding.spinnerOptions.selectedItemId.toInt().inc(),
-            byMonth
+            isMonthSelected
         )
     }
 
     private fun setupOptions() {
-        binding.btnFrequencyMonth.isSelected = true
         val items = listOf(
             getString(R.string.calculate_rates_vehicle_option),
             getString(R.string.calculate_rates_house_option),
@@ -93,7 +94,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
         val json = Gson().toJson(model)
         val action = CalculateRatesFragmentDirections.calculateRatesToCalculateRatesResult(
             json,
-            binding.btnFrequencyMonth.isSelected
+            isMonthSelected
         )
         findNavController().navigate(action)
     }
