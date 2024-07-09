@@ -49,7 +49,15 @@ class CreateGoalSecondStepViewModel(private val repository: CreateGoalRepository
     private fun sendCreateGoalRequest(model: CreateGoalRequest) {
         sendUIEvent(CreateGoalSecondStepEvent.ShowLoading)
         viewModelScope.launch {
-            repository.createGoal(model)
+            repository.createGoal(
+                model = model,
+                onSuccess = {
+                    sendUIEvent(CreateGoalSecondStepEvent.GoToList)
+                },
+                onError = {
+                    sendUIEvent(CreateGoalSecondStepEvent.ShowError)
+                }
+            )
             sendUIEvent(CreateGoalSecondStepEvent.HideLoading)
         }
     }

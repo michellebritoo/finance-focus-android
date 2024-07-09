@@ -67,6 +67,8 @@ class CreateGoalSecondStepFragment : Fragment(R.layout.fragment_create_goal_seco
                 is CreateGoalSecondStepEvent.HideLoading -> hideLoading()
                 is CreateGoalSecondStepEvent.InitDateError -> showInitDateError()
                 is CreateGoalSecondStepEvent.FinishDateError -> showFinishDateError()
+                is CreateGoalSecondStepEvent.ShowError -> showGenericError()
+                is CreateGoalSecondStepEvent.GoToList -> goToGoalsList()
             }
         }
     }
@@ -80,13 +82,19 @@ class CreateGoalSecondStepFragment : Fragment(R.layout.fragment_create_goal_seco
                 finishDate = etDateFinish.text.toString()
             )
         } else {
-            showError()
+            showInputError()
         }
     }
 
-    private fun showError() {
+    private fun showInputError() {
         this@CreateGoalSecondStepFragment.view?.let {
-            Snackbar.make(it, R.string.create_goals_generic_error, Snackbar.LENGTH_LONG).show()
+            Snackbar.make(it, R.string.create_goals_generic_input_error, Snackbar.LENGTH_LONG).show()
+        }
+    }
+
+    private fun showGenericError() {
+        this@CreateGoalSecondStepFragment.view?.let {
+            Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
         }
     }
 

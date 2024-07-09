@@ -59,7 +59,7 @@ class CreateGoalFragment : Fragment(R.layout.fragment_create_goal) {
 
     private fun showSnackbarError() {
         this@CreateGoalFragment.view?.let {
-            Snackbar.make(it, R.string.create_goals_generic_error, Snackbar.LENGTH_LONG).show()
+            Snackbar.make(it, R.string.create_goals_generic_input_error, Snackbar.LENGTH_LONG).show()
         }
     }
 
