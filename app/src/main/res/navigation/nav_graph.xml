@@ -74,6 +74,15 @@
         android:name="br.com.michellebrito.financefocus.goal.create.presentation.secondtep.CreateGoalSecondStepFragment"
         android:label="fragment_create_goal_second_step"
         tools:layout="@layout/fragment_create_goal_second_step" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="totalValue"
+            app:argType="float" />
         <action
             android:id="@+id/createGoalSecondStepFragmentToListGoalFragment"
             app:destination="@id/listGoalFragment" />

@@ -63,7 +63,18 @@ class CreateGoalFragment : Fragment(R.layout.fragment_create_goal) {
         }
     }
 
-    private fun goToNextStep() {
-        findNavController().navigate(R.id.createGoalToCreateGoalSecondStep)
+    private fun goToNextStep() = binding.apply{
+        val description = if (ETDescription.text?.isNotEmpty() == true) {
+            ETDescription.text
+        } else {
+            ""
+        }
+        val value = ETValue.text.toString().replace("[^\\d,]".toRegex(), "").replace(",", ".").toFloat()
+        val action = CreateGoalFragmentDirections.createGoalToCreateGoalSecondStep(
+            binding.ETTitle.text.toString(),
+            description.toString(),
+            value
+        )
+        findNavController().navigate(action)
     }
 }

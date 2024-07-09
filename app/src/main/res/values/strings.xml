@@ -77,6 +77,7 @@
     <string name="create_goals_generic_error">Não foi possível prosseguir. Por favor, verifique os campos.</string>
     <string name="create_goals_title_error">Crie um nome para o seu objetivo</string>
     <string name="create_goals_value_error">Defina um valor válido para o seu objetivo</string>
+    <string name="create_goals_date_error">Data inválida</string>
 
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
