@@ -8,6 +8,10 @@ import br.com.michellebrito.financefocus.goal.create.data.CreateGoalRepositoryIm
 import br.com.michellebrito.financefocus.goal.create.domain.CreateGoalRepository
 import br.com.michellebrito.financefocus.goal.create.presentation.firststep.CreateGoalViewModel
 import br.com.michellebrito.financefocus.goal.create.presentation.secondtep.CreateGoalSecondStepViewModel
+import br.com.michellebrito.financefocus.goal.list.data.ListGoalClient
+import br.com.michellebrito.financefocus.goal.list.data.ListGoalRepositoryImpl
+import br.com.michellebrito.financefocus.goal.list.domain.ListGoalRepository
+import br.com.michellebrito.financefocus.goal.list.presentation.ListGoalViewModel
 import br.com.michellebrito.financefocus.home.data.HomeClient
 import br.com.michellebrito.financefocus.home.data.HomeRepositoryImpl
 import br.com.michellebrito.financefocus.home.domain.HomeRepository
@@ -43,6 +47,7 @@ val AppModule = module {
     factory { RetrofitInstance.getInstance().create(ProfileClient::class.java) }
     factory { RetrofitInstance.getInstance().create(CalculateRatesClient::class.java) }
     factory { RetrofitInstance.getInstance().create(CreateGoalClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(ListGoalClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
@@ -52,6 +57,7 @@ val AppModule = module {
     factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
     factory<CreateGoalRepository> { CreateGoalRepositoryImpl(get(), get()) }
+    factory<ListGoalRepository> { ListGoalRepositoryImpl(get(), get()) }
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
@@ -62,5 +68,6 @@ val AppModule = module {
     viewModel { CalculateRatesViewModel(get()) }
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel(get()) }
+    viewModel { ListGoalViewModel(get()) }
     viewModel { ProfileFragmentViewModel(get()) }
 }
