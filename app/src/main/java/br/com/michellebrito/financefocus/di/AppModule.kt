@@ -3,8 +3,8 @@ package br.com.michellebrito.financefocus.di
 import br.com.michellebrito.financefocus.common.data.PreferencesStorageImpl
 import br.com.michellebrito.financefocus.common.data.retrofit.RetrofitInstance
 import br.com.michellebrito.financefocus.common.domain.PreferenceStorage
-import br.com.michellebrito.financefocus.goal.create.createfirststep.presentation.CreateGoalViewModel
-import br.com.michellebrito.financefocus.goal.create.createsecondstep.presentation.CreateGoalSecondStepViewModel
+import br.com.michellebrito.financefocus.goal.create.presentation.firststep.CreateGoalViewModel
+import br.com.michellebrito.financefocus.goal.create.presentation.secondtep.CreateGoalSecondStepViewModel
 import br.com.michellebrito.financefocus.home.data.HomeClient
 import br.com.michellebrito.financefocus.home.data.HomeRepositoryImpl
 import br.com.michellebrito.financefocus.home.domain.HomeRepository

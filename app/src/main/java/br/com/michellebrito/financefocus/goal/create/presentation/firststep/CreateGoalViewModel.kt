@@ -1,4 +1,4 @@
-package br.com.michellebrito.financefocus.goal.create.createfirststep.presentation
+package br.com.michellebrito.financefocus.goal.create.presentation.firststep
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
