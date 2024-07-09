@@ -1,5 +1,6 @@
 package br.com.michellebrito.financefocus.rates.result.presentation
 
+import android.app.AlertDialog
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
@@ -49,6 +50,21 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
             }
             true
         }
+        binding.infoGlobalRate.setIconInfoClickListener { showDialog() }
+    }
+
+    private fun showDialog() {
+        val message = StringBuilder()
+        responseModel.lastRates.forEach {
+            message.append(
+                "${it.date} - ${it.value} %\n"
+            )
+        }
+        AlertDialog.Builder(requireContext())
+            .setTitle("Últimos registros do Banco Central do Brasil")
+            .setMessage(message)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     private fun showResult() = with(binding) {
