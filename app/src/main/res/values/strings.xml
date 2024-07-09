@@ -73,6 +73,11 @@
     <string name="create_goal_finish_date_hint">Data de conclusão</string>
     <string name="create_goal_finish_date_place_holder">Defina a data para conclusão do seu objetivo</string>
 
+    <!-- create goals errors -->
+    <string name="create_goals_generic_error">Não foi possível prosseguir. Por favor, verifique os campos.</string>
+    <string name="create_goals_title_error">Crie um nome para o seu objetivo</string>
+    <string name="create_goals_value_error">Defina um valor válido para o seu objetivo</string>
+
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
     <string name="list_goal_search">Pesquisar</string>

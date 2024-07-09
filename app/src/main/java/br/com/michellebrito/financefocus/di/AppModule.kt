@@ -3,6 +3,9 @@ package br.com.michellebrito.financefocus.di
 import br.com.michellebrito.financefocus.common.data.PreferencesStorageImpl
 import br.com.michellebrito.financefocus.common.data.retrofit.RetrofitInstance
 import br.com.michellebrito.financefocus.common.domain.PreferenceStorage
+import br.com.michellebrito.financefocus.goal.create.data.CreateGoalClient
+import br.com.michellebrito.financefocus.goal.create.data.CreateGoalRepositoryImpl
+import br.com.michellebrito.financefocus.goal.create.domain.CreateGoalRepository
 import br.com.michellebrito.financefocus.goal.create.presentation.firststep.CreateGoalViewModel
 import br.com.michellebrito.financefocus.goal.create.presentation.secondtep.CreateGoalSecondStepViewModel
 import br.com.michellebrito.financefocus.home.data.HomeClient
@@ -39,6 +42,7 @@ val AppModule = module {
     factory { RetrofitInstance.getInstance().create(HomeClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ProfileClient::class.java) }
     factory { RetrofitInstance.getInstance().create(CalculateRatesClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(CreateGoalClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
@@ -47,6 +51,7 @@ val AppModule = module {
     factory<SignUpRepository> { SignUpRepositoryImpl(get()) }
     factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
+    factory<CreateGoalRepository> { CreateGoalRepositoryImpl(get(), get()) }
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
@@ -56,6 +61,6 @@ val AppModule = module {
     viewModel { HomeViewModel(get()) }
     viewModel { CalculateRatesViewModel(get()) }
     viewModel { CreateGoalViewModel() }
-    viewModel { CreateGoalSecondStepViewModel() }
+    viewModel { CreateGoalSecondStepViewModel(get()) }
     viewModel { ProfileFragmentViewModel(get()) }
 }
