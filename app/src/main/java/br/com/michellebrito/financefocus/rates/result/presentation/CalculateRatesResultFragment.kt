@@ -119,7 +119,7 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
         chart.axisRight.isEnabled = false
 
         chart.axisLeft.axisMinimum = 0f
-        chart.axisLeft.axisMaximum = 2f
+        chart.axisLeft.axisMaximum = yValueWithInterest + 1f
 
         chart.invalidate()
     }
