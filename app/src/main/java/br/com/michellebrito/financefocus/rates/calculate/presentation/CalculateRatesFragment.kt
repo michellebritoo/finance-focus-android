@@ -56,7 +56,7 @@ class CalculateRatesFragment : Fragment(R.layout.fragment_calculate_rates) {
 
     private fun showError() {
         this@CalculateRatesFragment.view?.let {
-            Snackbar.make(it, R.string.signup_confirm_failure_generic, Snackbar.LENGTH_LONG).show()
+            Snackbar.make(it, R.string.create_goals_generic_error, Snackbar.LENGTH_LONG).show()
         }
     }
 
