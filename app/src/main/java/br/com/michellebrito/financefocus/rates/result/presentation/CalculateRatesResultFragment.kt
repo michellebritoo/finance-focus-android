@@ -80,32 +80,28 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
         )
     }
 
-    private fun showChartData(value: Float, totalValue: Float) = with(binding) {
-        val yValueWithInterest = totalValue/1000
-
-        val yValueWithoutInterest = value/1000
-
+    private fun showChartData(originalValue: Float, totalValue: Float) = with(binding) {
         val entriesWithInterest = mutableListOf(
-            Entry(0f, yValueWithoutInterest),
-            Entry(1f, yValueWithInterest),
-            Entry(2f, yValueWithInterest),
+            Entry(0f, originalValue),
+            Entry(1f, totalValue),
+            Entry(2f, totalValue),
         )
-
         val entriesWithoutInterest = mutableListOf(
-            Entry(0f, yValueWithoutInterest),
-            Entry(1f, yValueWithoutInterest),
-            Entry(2f, yValueWithoutInterest),
+            Entry(0f, originalValue),
+            Entry(1f, originalValue),
+            Entry(2f, originalValue),
         )
 
-        val dataSetWithInterest = LineDataSet(entriesWithInterest, "Com Juros")
-        dataSetWithInterest.color = Color.RED
-        dataSetWithInterest.setDrawValues(false)
-        dataSetWithInterest.mode = LineDataSet.Mode.LINEAR
-
-        val dataSetWithoutInterest = LineDataSet(entriesWithoutInterest, "Sem Juros")
-        dataSetWithoutInterest.color = Color.BLUE
-        dataSetWithoutInterest.setDrawValues(false)
-        dataSetWithoutInterest.mode = LineDataSet.Mode.LINEAR
+        val dataSetWithInterest = LineDataSet(entriesWithInterest, "Com Juros").apply {
+            color = Color.RED
+            setDrawValues(true)
+            mode = LineDataSet.Mode.LINEAR
+        }
+        val dataSetWithoutInterest = LineDataSet(entriesWithoutInterest, "Sem Juros").apply {
+            color = Color.BLUE
+            setDrawValues(true)
+            mode = LineDataSet.Mode.LINEAR
+        }
 
         val dataSets: MutableList<ILineDataSet> = ArrayList()
         dataSets.add(dataSetWithInterest)
@@ -113,13 +109,15 @@ class CalculateRatesResultFragment : Fragment(R.layout.fragment_calculate_rates_
 
         val lineData = LineData(dataSets)
 
-        chart.data = lineData
-        chart.description.isEnabled = false
-        chart.xAxis.position = XAxis.XAxisPosition.BOTTOM
-        chart.axisRight.isEnabled = false
-
-        chart.axisLeft.axisMinimum = 0f
-        chart.axisLeft.axisMaximum = yValueWithInterest + 1f
+        chart.apply {
+            data = lineData
+            description.isEnabled = true
+            description.text = "Comparativo com e sem juros"
+            xAxis.position = XAxis.XAxisPosition.BOTTOM
+            axisRight.isEnabled = false
+            axisLeft.axisMinimum = 0f
+            axisLeft.axisMaximum = totalValue + 2f
+        }
 
         chart.invalidate()
     }
