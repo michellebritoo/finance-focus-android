@@ -21,7 +21,7 @@
         android:id="@+id/signUpFragment"
         android:name="br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailStepFragment"
         android:label="fragment_sign_up"
-        tools:layout="@layout/fragment_sign_up_email_step" >
+        tools:layout="@layout/fragment_sign_up_email_step">
         <action
             android:id="@+id/signUpStepEmailToStepPassword"
             app:destination="@id/signUpPasswordStepFragment" />
@@ -145,4 +145,25 @@
         android:id="@+id/passwordRecoveryFragment"
         android:name="br.com.michellebrito.financefocus.passwordrecovery.presentation.PasswordRecoveryFragment"
         android:label="PasswordRecoveryFragment" />
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="br.com.michellebrito.financefocus.common.presentation.FeedbackFragment"
+        android:label="fragment_feedback"
+        tools:layout="@layout/fragment_feedback">
+        <argument
+            android:name="title"
+            app:argType="string" />
+        <argument
+            android:name="description"
+            app:argType="string" />
+        <argument
+            android:name="buttonText"
+            app:argType="string" />
+        <argument
+            android:name="onCloseAction"
+            app:argType="reference" />
+    </fragment>
+    <action
+        android:id="@+id/action_global_feedbackFragment"
+        app:destination="@id/feedbackFragment" />
 </navigation>
