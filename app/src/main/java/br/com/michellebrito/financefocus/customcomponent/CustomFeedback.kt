@@ -30,7 +30,7 @@ class CustomFeedback @JvmOverloads constructor(
 
     fun setOnButtonClickListener(listener: () -> Unit) {
         binding.btnFeedback.setOnClickListener { listener() }
-        binding.appBar.setOnClickListener { listener() }
+        binding.topBar.setOnClickListener { listener() }
     }
 
     private fun setLayout(attrs: AttributeSet?) {
