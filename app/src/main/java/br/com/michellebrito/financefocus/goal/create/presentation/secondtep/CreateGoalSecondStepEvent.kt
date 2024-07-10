@@ -6,5 +6,5 @@ sealed class CreateGoalSecondStepEvent {
     data object InitDateError: CreateGoalSecondStepEvent()
     data object FinishDateError: CreateGoalSecondStepEvent()
     data object ShowError: CreateGoalSecondStepEvent()
-    data object GoToList: CreateGoalSecondStepEvent()
+    data object CreateWithSuccess: CreateGoalSecondStepEvent()
 }

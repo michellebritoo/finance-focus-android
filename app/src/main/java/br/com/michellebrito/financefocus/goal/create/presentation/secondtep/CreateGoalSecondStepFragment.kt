@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
+import br.com.michellebrito.financefocus.common.presentation.FeedbackFragmentDirections
 import br.com.michellebrito.financefocus.databinding.FragmentCreateGoalSecondStepBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -68,7 +69,7 @@ class CreateGoalSecondStepFragment : Fragment(R.layout.fragment_create_goal_seco
                 is CreateGoalSecondStepEvent.InitDateError -> showInitDateError()
                 is CreateGoalSecondStepEvent.FinishDateError -> showFinishDateError()
                 is CreateGoalSecondStepEvent.ShowError -> showGenericError()
-                is CreateGoalSecondStepEvent.GoToList -> goToGoalsList()
+                is CreateGoalSecondStepEvent.CreateWithSuccess -> onCreateGoalWithSuccess()
             }
         }
     }
@@ -110,7 +111,13 @@ class CreateGoalSecondStepFragment : Fragment(R.layout.fragment_create_goal_seco
         binding.tilDateFinish.error = getString(R.string.create_goals_date_error)
     }
 
-    private fun goToGoalsList() {
-        findNavController().navigate(R.id.createGoalSecondStepFragmentToListGoalFragment)
+    private fun onCreateGoalWithSuccess() {
+        val action = FeedbackFragmentDirections.actionGlobalFeedbackFragment(
+            title = getString(R.string.create_goal_with_success_title),
+            description = getString(R.string.create_goal_with_success_description),
+            buttonText = getString(R.string.btn_understood),
+            onCloseAction = R.id.listGoalFragment
+        )
+        findNavController().navigate(action)
     }
 }

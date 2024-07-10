@@ -52,7 +52,7 @@ class CreateGoalSecondStepViewModel(private val repository: CreateGoalRepository
             repository.createGoal(
                 model = model,
                 onSuccess = {
-                    sendUIEvent(CreateGoalSecondStepEvent.GoToList)
+                    sendUIEvent(CreateGoalSecondStepEvent.CreateWithSuccess)
                 },
                 onError = {
                     sendUIEvent(CreateGoalSecondStepEvent.ShowError)
