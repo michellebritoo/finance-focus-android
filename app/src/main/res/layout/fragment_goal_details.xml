@@ -82,13 +82,23 @@
                 android:textSize="@dimen/text_size_fourteen"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                tools:text="R$ 1.000,00" />
+                tools:text="@string/goal_details_total_value" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_remaining_value"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey_text"
+                android:textSize="@dimen/text_size_fourteen"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_card_value"
+                tools:text="@string/goal_details_remaining_value" />
 
             <androidx.appcompat.widget.AppCompatTextView
                 android:id="@+id/tv_card_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="@dimen/margin_sixteen"
+                android:layout_marginVertical="@dimen/margin_twenty_four"
                 android:textSize="@dimen/text_size_twenty_four"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_card_date"
@@ -106,6 +116,28 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tv_card_title"
                 tools:text="Nova TV pora a sala, Lorem ipsum dolor sit amet, consectetur adipiscing elit." />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_frequency"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey_text"
+                android:layout_marginVertical="@dimen/margin_sixteen"
+                android:textSize="@dimen/text_size_fourteen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_card_description"
+                tools:text="Frequencia: semanal" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_progress_type"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/grey_text"
+                android:layout_marginVertical="@dimen/margin_eight"
+                android:textSize="@dimen/text_size_fourteen"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/tv_card_frequency"
+                tools:text="Valor fixo" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

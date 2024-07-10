@@ -8,6 +8,10 @@ import br.com.michellebrito.financefocus.goal.create.data.CreateGoalRepositoryIm
 import br.com.michellebrito.financefocus.goal.create.domain.CreateGoalRepository
 import br.com.michellebrito.financefocus.goal.create.presentation.firststep.CreateGoalViewModel
 import br.com.michellebrito.financefocus.goal.create.presentation.secondtep.CreateGoalSecondStepViewModel
+import br.com.michellebrito.financefocus.goal.details.data.GoalDetailsClient
+import br.com.michellebrito.financefocus.goal.details.data.GoalDetailsRepositoryImpl
+import br.com.michellebrito.financefocus.goal.details.domain.GoalDetailsRepository
+import br.com.michellebrito.financefocus.goal.details.presentation.GoalDetailsViewModel
 import br.com.michellebrito.financefocus.goal.list.data.ListGoalClient
 import br.com.michellebrito.financefocus.goal.list.data.ListGoalRepositoryImpl
 import br.com.michellebrito.financefocus.goal.list.domain.ListGoalRepository
@@ -48,6 +52,7 @@ val AppModule = module {
     factory { RetrofitInstance.getInstance().create(CalculateRatesClient::class.java) }
     factory { RetrofitInstance.getInstance().create(CreateGoalClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ListGoalClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(GoalDetailsClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
@@ -58,6 +63,7 @@ val AppModule = module {
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
     factory<CreateGoalRepository> { CreateGoalRepositoryImpl(get(), get()) }
     factory<ListGoalRepository> { ListGoalRepositoryImpl(get(), get()) }
+    factory<GoalDetailsRepository> { GoalDetailsRepositoryImpl(get(), get()) }
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
@@ -69,5 +75,6 @@ val AppModule = module {
     viewModel { CreateGoalViewModel() }
     viewModel { CreateGoalSecondStepViewModel(get()) }
     viewModel { ListGoalViewModel(get()) }
+    viewModel { GoalDetailsViewModel(get()) }
     viewModel { ProfileFragmentViewModel(get()) }
 }
