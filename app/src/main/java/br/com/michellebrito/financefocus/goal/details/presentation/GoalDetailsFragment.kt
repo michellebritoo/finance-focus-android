@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
+import br.com.michellebrito.financefocus.common.presentation.FeedbackFragmentDirections
 import br.com.michellebrito.financefocus.databinding.FragmentGoalDetailsBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -68,12 +69,19 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
                     state.gradualProgress,
                     state.monthFrequency
                 )
+                else -> Unit
             }
         }
     }
 
     private fun onDeleteWithSuccess() {
-
+        val action = FeedbackFragmentDirections.actionGlobalFeedbackFragment(
+            title = getString(R.string.goal_delete_success_title),
+            description = getString(R.string.goal_delete_success_description),
+            buttonText = getString(R.string.btn_close),
+            onCloseAction = R.id.homeFragment
+        )
+        findNavController().navigate(action)
     }
 
     private fun showLoading() = (requireActivity() as MainActivity).showLoading()
