@@ -20,7 +20,8 @@ class ListGoalViewModel(private val repository: ListGoalRepository): ViewModel()
                     val list = response.body()?.map { goal ->
                         ListGoalItemModel(
                             title = goal.name,
-                            date = goal.finishDate
+                            date = goal.finishDate,
+                            id = goal.id
                         )
                     }
                    list?.let { sendUIEvent(ListGoalEvent.ShowList(it)) }

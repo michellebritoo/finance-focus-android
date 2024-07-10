@@ -65,7 +65,10 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     private fun showList(list: List<ListGoalItemModel>) = with(binding) {
         rvGoalList.adapter = ListGoalAdapter(list).apply {
             onItemClick = {
-                findNavController().navigate(R.id.listGoalFragmentToGoalDetailsFragment)
+                val action = ListGoalFragmentDirections.listGoalFragmentToGoalDetailsFragment(
+                    idgoal = it.id
+                )
+                findNavController().navigate(action)
             }
         }
     }

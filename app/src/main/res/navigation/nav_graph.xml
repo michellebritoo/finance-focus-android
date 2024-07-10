@@ -107,6 +107,9 @@
         android:name="br.com.michellebrito.financefocus.goal.details.presentation.GoalDetailsFragment"
         android:label="fragment_goal_details"
         tools:layout="@layout/fragment_goal_details" >
+        <argument
+            android:name="idgoal"
+            app:argType="string" />
         <action
             android:id="@+id/goalDetailsToCalculateRates"
             app:destination="@id/calculateRatesFragment" />
