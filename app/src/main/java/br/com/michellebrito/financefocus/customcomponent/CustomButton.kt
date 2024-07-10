@@ -32,6 +32,10 @@ class CustomButton @JvmOverloads constructor(
         state = CustomButtonState.Disable
     }
 
+    fun setText(text: String) {
+        binding.tvTitleButton.text = text
+    }
+
     private fun setLayout(attrs: AttributeSet?) {
         attrs?.let { attributeSet ->
             val attributes = context.obtainStyledAttributes(
