@@ -12,6 +12,10 @@ import br.com.michellebrito.financefocus.goal.details.data.GoalDetailsClient
 import br.com.michellebrito.financefocus.goal.details.data.GoalDetailsRepositoryImpl
 import br.com.michellebrito.financefocus.goal.details.domain.GoalDetailsRepository
 import br.com.michellebrito.financefocus.goal.details.presentation.GoalDetailsViewModel
+import br.com.michellebrito.financefocus.goal.increment.data.IncrementGoalClient
+import br.com.michellebrito.financefocus.goal.increment.data.IncrementGoalRepositoryImpl
+import br.com.michellebrito.financefocus.goal.increment.domain.IncrementGoalRepository
+import br.com.michellebrito.financefocus.goal.increment.presentation.IncrementGoalViewModel
 import br.com.michellebrito.financefocus.goal.list.data.ListGoalClient
 import br.com.michellebrito.financefocus.goal.list.data.ListGoalRepositoryImpl
 import br.com.michellebrito.financefocus.goal.list.domain.ListGoalRepository
@@ -53,6 +57,7 @@ val AppModule = module {
     factory { RetrofitInstance.getInstance().create(CreateGoalClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ListGoalClient::class.java) }
     factory { RetrofitInstance.getInstance().create(GoalDetailsClient::class.java) }
+    factory { RetrofitInstance.getInstance().create(IncrementGoalClient::class.java) }
 
     factory<LoginRepository> { LoginRepositoryImpl(get()) }
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
@@ -64,6 +69,7 @@ val AppModule = module {
     factory<CreateGoalRepository> { CreateGoalRepositoryImpl(get(), get()) }
     factory<ListGoalRepository> { ListGoalRepositoryImpl(get(), get()) }
     factory<GoalDetailsRepository> { GoalDetailsRepositoryImpl(get(), get()) }
+    factory<IncrementGoalRepository> { IncrementGoalRepositoryImpl(get(), get()) }
 
     viewModel { WelcomeViewModel(get()) }
     viewModel { LoginViewModel(get()) }
@@ -76,5 +82,6 @@ val AppModule = module {
     viewModel { CreateGoalSecondStepViewModel(get()) }
     viewModel { ListGoalViewModel(get()) }
     viewModel { GoalDetailsViewModel(get()) }
+    viewModel { IncrementGoalViewModel(get()) }
     viewModel { ProfileFragmentViewModel(get()) }
 }
