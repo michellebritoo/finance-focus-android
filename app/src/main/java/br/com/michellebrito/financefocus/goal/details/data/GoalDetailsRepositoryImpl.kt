@@ -25,6 +25,22 @@ class GoalDetailsRepositoryImpl(
         }
     }
 
+    override suspend fun deleteGoal(
+        id: String,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    ) {
+        try {
+            client.deleteGoal(
+                authorization = preferenceStorage.getString(AUTHORIZATION),
+                id = id
+            )
+            onSuccess()
+        } catch (e: Exception) {
+            onError(e)
+        }
+    }
+
     private companion object {
         const val AUTHORIZATION = "authorization"
     }

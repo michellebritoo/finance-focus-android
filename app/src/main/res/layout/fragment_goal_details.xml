@@ -158,6 +158,17 @@
         app:textColor="@color/primary" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_increment_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        app:layout_constraintBottom_toTopOf="@id/btn_delete_goal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:title="@string/goal_details_register_progress" />
+
+    <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_delete_goal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
@@ -165,7 +176,7 @@
         app:layout_constraintBottom_toTopOf="@id/bottom_navigation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:title="@string/goal_details_register_progress" />
+        app:title="@string/goal_details_delete_goal" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

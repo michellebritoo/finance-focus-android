@@ -1,5 +1,6 @@
 package br.com.michellebrito.financefocus.goal.details.presentation
 
+import android.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -27,6 +28,7 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        btnDeleteGoal.setOnClickListener { onDeleteGoalClicked() }
         bottomNavigation.selectedItemId = R.id.item_goals
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -38,12 +40,24 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
         }
     }
 
+    private fun onDeleteGoalClicked() {
+        AlertDialog.Builder(requireContext())
+            .setTitle(getString(R.string.goal_details_delete_dialog_title))
+            .setMessage(getString(R.string.goal_details_delete_dialog_message))
+            .setPositiveButton(android.R.string.ok) { _, _ ->
+                viewModel.onDeleteGoal()
+            }
+            .setNegativeButton(android.R.string.cancel, null)
+            .show()
+    }
+
     private fun observeEvents() {
         viewModel.viewState.observe(viewLifecycleOwner) { state ->
             when (state) {
                 is GoalDetailEvent.ShowLoading -> showLoading()
                 is GoalDetailEvent.HideLoading -> hideLoading()
                 is GoalDetailEvent.ShowError -> showError()
+                is GoalDetailEvent.OnSuccessDelete -> onDeleteWithSuccess()
                 is GoalDetailEvent.ShowGoal -> showGoal(
                     state.name,
                     state.description,
@@ -56,6 +70,10 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
                 )
             }
         }
+    }
+
+    private fun onDeleteWithSuccess() {
+
     }
 
     private fun showLoading() = (requireActivity() as MainActivity).showLoading()

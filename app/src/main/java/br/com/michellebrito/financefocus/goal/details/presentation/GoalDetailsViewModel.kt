@@ -10,8 +10,10 @@ import kotlinx.coroutines.launch
 class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : ViewModel() {
     private val _viewState = MutableLiveData<GoalDetailEvent>()
     val viewState: LiveData<GoalDetailEvent> = _viewState
+    private var goalId: String = ""
 
     fun getGoalRequest(id: String) {
+        goalId = id
         sendUIEvent(GoalDetailEvent.ShowLoading)
         viewModelScope.launch {
             repository.getGoal(
@@ -40,6 +42,18 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
                 onError = {
                     sendUIEvent(GoalDetailEvent.ShowError)
                 }
+            )
+            sendUIEvent(GoalDetailEvent.HideLoading)
+        }
+    }
+
+    fun onDeleteGoal() {
+        sendUIEvent(GoalDetailEvent.ShowLoading)
+        viewModelScope.launch {
+            repository.deleteGoal(
+                id = goalId,
+                onSuccess = { sendUIEvent(GoalDetailEvent.OnSuccessDelete) },
+                onError = { sendUIEvent(GoalDetailEvent.ShowError) }
             )
             sendUIEvent(GoalDetailEvent.HideLoading)
         }

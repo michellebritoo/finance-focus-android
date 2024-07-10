@@ -100,6 +100,9 @@
     <string name="goal_details_week_frequency">Aporte semanal</string>
     <string name="goal_details_fixed_value">Valor fixo</string>
     <string name="goal_details_relative_value">Aumento gradual</string>
+    <string name="goal_details_delete_goal">Deletar objetivo</string>
+    <string name="goal_details_delete_dialog_title">Excluir objetivo</string>
+    <string name="goal_details_delete_dialog_message">Você tem certeza que deseja excluir esse objetivo? Essa ação é irreversível</string>
 
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>

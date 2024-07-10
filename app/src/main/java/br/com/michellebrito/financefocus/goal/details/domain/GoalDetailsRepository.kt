@@ -9,4 +9,9 @@ interface GoalDetailsRepository {
         onSuccess: (Response<GoalResponse>) -> Unit,
         onError: (Throwable) -> Unit
     )
+    suspend fun deleteGoal(
+        id: String,
+        onSuccess: () -> Unit,
+        onError: (Throwable) -> Unit
+    )
 }

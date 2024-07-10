@@ -4,6 +4,7 @@ sealed class GoalDetailEvent {
     data object ShowLoading: GoalDetailEvent()
     data object HideLoading: GoalDetailEvent()
     data object ShowError: GoalDetailEvent()
+    data object OnSuccessDelete: GoalDetailEvent()
     data class ShowGoal(
         val name: String,
         val description: String,
