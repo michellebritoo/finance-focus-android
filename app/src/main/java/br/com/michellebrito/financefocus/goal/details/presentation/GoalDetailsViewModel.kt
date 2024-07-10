@@ -26,7 +26,7 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
                                     description = description,
                                     value = totalValue,
                                     remainingValue = remainingValue,
-                                    progress = 20f,
+                                    progress = getProgress(totalValue, remainingValue),
                                     date = "$initDate - $finishDate",
                                     gradualProgress = gradualProgress,
                                     monthFrequency = monthFrequency
@@ -43,6 +43,10 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
             )
             sendUIEvent(GoalDetailEvent.HideLoading)
         }
+    }
+
+    private fun getProgress(totalValue: Double, remainingValue: Double): Float {
+        return ((1 - (remainingValue / totalValue)) * 100).toFloat()
     }
 
     private fun sendUIEvent(event: GoalDetailEvent) {
