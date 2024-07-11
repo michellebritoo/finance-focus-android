@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementGoalRepository
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementModelRequest
+import br.com.michellebrito.financefocus.goal.increment.domain.ListIncrementItemModel
 import kotlinx.coroutines.launch
 
 class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : ViewModel() {
@@ -37,9 +38,13 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
             repository.getExpectedDeposits(
                 id = id,
                 onSuccess = {
-                    it.body()?.let { deposits ->
-                        sendUIEvent(IncrementGoalEvent.ShowExpectedDeposits(deposits))
+                    val list = it.body()?.map { deposits ->
+                        ListIncrementItemModel(
+                            value = deposits.value,
+                            completed = deposits.completed
+                        )
                     }
+                    list?.let { sendUIEvent(IncrementGoalEvent.ShowExpectedDeposits(list)) }
                 },
                 onError = {
                     sendUIEvent(IncrementGoalEvent.ShowError)
