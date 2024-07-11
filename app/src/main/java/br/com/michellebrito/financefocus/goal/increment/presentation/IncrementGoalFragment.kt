@@ -12,5 +12,12 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
 
     override fun onResume() {
         super.onResume()
+
+        val args = arguments?.let { IncrementGoalFragmentArgs.fromBundle(it) }
+        args?.let {
+            viewModel.onStart(args.goaltoincrement)
+        }
     }
+
+
 }

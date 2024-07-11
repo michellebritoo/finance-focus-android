@@ -113,6 +113,9 @@
         <action
             android:id="@+id/goalDetailsToCalculateRates"
             app:destination="@id/calculateRatesFragment" />
+        <action
+            android:id="@+id/action_goalDetailsFragment_to_incrementGoalFragment"
+            app:destination="@id/incrementGoalFragment" />
     </fragment>
     <fragment
         android:id="@+id/calculateRatesFragment"
@@ -166,4 +169,13 @@
     <action
         android:id="@+id/action_global_feedbackFragment"
         app:destination="@id/feedbackFragment" />
+    <fragment
+        android:id="@+id/incrementGoalFragment"
+        android:name="br.com.michellebrito.financefocus.goal.increment.presentation.IncrementGoalFragment"
+        android:label="fragment_increment_goal"
+        tools:layout="@layout/fragment_increment_goal">
+        <argument
+            android:name="goaltoincrement"
+            app:argType="string"/>
+    </fragment>
 </navigation>

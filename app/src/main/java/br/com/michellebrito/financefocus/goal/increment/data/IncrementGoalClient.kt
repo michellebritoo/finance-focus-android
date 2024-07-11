@@ -22,7 +22,7 @@ interface IncrementGoalClient {
     )
 
     private companion object {
-        const val PRE_INCREMENT = "/pre/increment"
+        const val PRE_INCREMENT = "/goal/pre/increment"
         const val GOAL_INCREMENT = "/goal/increment"
         const val HEADER_AUTHORIZATION = "authorization"
         const val HEADER_ID = "id"

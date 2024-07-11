@@ -14,22 +14,23 @@ import org.koin.android.ext.android.inject
 class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
     private val binding: FragmentGoalDetailsBinding by viewBinding()
     private val viewModel: GoalDetailsViewModel by inject()
+    private var id = ""
 
     override fun onResume() {
         super.onResume()
         setupListeners()
         observeEvents()
-        val args = arguments?.let {
-            GoalDetailsFragmentArgs.fromBundle(it)
-        }
+        val args = arguments?.let { GoalDetailsFragmentArgs.fromBundle(it) }
         args?.let {
             viewModel.getGoalRequest(args.idgoal)
+            this.id = args.idgoal
         }
     }
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         btnDeleteGoal.setOnClickListener { onDeleteGoalClicked() }
+        btnIncrementGoal.setOnClickListener { goToIncrementScreen() }
         bottomNavigation.selectedItemId = R.id.item_goals
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -81,6 +82,11 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
             buttonText = getString(R.string.btn_close),
             onCloseAction = R.id.homeFragment
         )
+        findNavController().navigate(action)
+    }
+
+    private fun goToIncrementScreen() {
+        val action = GoalDetailsFragmentDirections.actionGoalDetailsFragmentToIncrementGoalFragment(id)
         findNavController().navigate(action)
     }
 
