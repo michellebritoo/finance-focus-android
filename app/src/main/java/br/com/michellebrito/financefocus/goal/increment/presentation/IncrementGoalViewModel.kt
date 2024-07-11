@@ -12,11 +12,18 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
     private val _viewState = MutableLiveData<IncrementGoalEvent>()
     val viewState: LiveData<IncrementGoalEvent> = _viewState
 
-    fun incrementGoal(id: String, value: Float) {
+    private var id: String = ""
+
+    fun onStart(id: String) {
+        this.id = id
+        getExpectedGoals()
+    }
+
+    fun incrementGoal(value: Float) {
         if (isValidValue(value).not()) {
             sendUIEvent(IncrementGoalEvent.InvalidValue)
         } else {
-            sendIncrementGoalRequest(id, value)
+            sendIncrementGoalRequest(value)
         }
     }
 
@@ -24,13 +31,31 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         return value > 0f
     }
 
-    private fun sendIncrementGoalRequest(id: String, value: Float) {
+    private fun getExpectedGoals() {
+        viewModelScope.launch {
+            sendUIEvent(IncrementGoalEvent.ShowLoading)
+            repository.getExpectedDeposits(
+                id = id,
+                onSuccess = {
+                    it.body()?.let { deposits ->
+                        sendUIEvent(IncrementGoalEvent.ShowExpectedDeposits(deposits))
+                    }
+                },
+                onError = {
+                    sendUIEvent(IncrementGoalEvent.ShowError)
+                }
+            )
+            sendUIEvent(IncrementGoalEvent.HideLoading)
+        }
+    }
+
+    private fun sendIncrementGoalRequest(value: Float) {
         viewModelScope.launch {
             sendUIEvent(IncrementGoalEvent.ShowLoading)
             repository.sendIncrementRequest(
                 model = IncrementModelRequest(id, value),
                 onSuccess = {
-                    sendUIEvent(IncrementGoalEvent.OnSuccess)
+                    sendUIEvent(IncrementGoalEvent.OnIncrementWithSuccess)
                 },
                 onError = {
                     sendUIEvent(IncrementGoalEvent.ShowError)
