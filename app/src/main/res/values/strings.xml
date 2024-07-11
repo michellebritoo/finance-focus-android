@@ -110,6 +110,11 @@
     <string name="goal_delete_success_title">Objetivo deletado com sucesso</string>
     <string name="goal_delete_success_description">Seu objetivo foi deletado. Você pode cadastrar um novo quando desejar.</string>
 
+    <!-- goal increment -->
+    <string name="goal_increment_top_bar">Registrar progresso</string>
+    <string name="goal_increment_title">Vamos registrar o seu avanço!</string>
+    <string name="goal_increment_description">Você está cada vez mais perto de alcançar seu objetivo</string>
+
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>
     <string name="calculate_rates_title">Vamos calcular a taxa de juros!</string>

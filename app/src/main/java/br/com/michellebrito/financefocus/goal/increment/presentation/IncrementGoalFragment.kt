@@ -1,6 +1,7 @@
 package br.com.michellebrito.financefocus.goal.increment.presentation
 
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentIncrementGoalBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -17,7 +18,10 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
         args?.let {
             viewModel.onStart(args.goaltoincrement)
         }
+        setupListeners()
     }
 
-
+    private fun setupListeners() = with(binding) {
+        topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+    }
 }
