@@ -40,6 +40,7 @@ class SignUpPasswordStepFragment : Fragment(R.layout.fragment_sign_up_password_s
                 is SignUpPasswordEvent.PasswordNotEquals -> showNotEqualsPasswordFeedback()
                 is SignUpPasswordEvent.ShowLoading -> showLoading()
                 is SignUpPasswordEvent.HideLoading -> hideLoading()
+                is SignUpPasswordEvent.ShowError -> showGenericFeedback()
                 is SignUpPasswordEvent.RegisterResult -> onCreateAccountResult(state.isSuccess)
             }
         }

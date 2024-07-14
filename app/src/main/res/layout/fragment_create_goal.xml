@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".goal.create.createfirststep.presentation.CreateGoalFragment">
+    tools:context=".goal.create.presentation.firststep.CreateGoalFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -108,7 +108,7 @@
             android:id="@+id/ET_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="number" />
+            android:inputType="textNoSuggestions|number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 

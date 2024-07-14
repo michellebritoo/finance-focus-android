@@ -3,6 +3,11 @@
     <string name="btn_login">Login</string>
     <string name="btn_create_account">Criar conta</string>
     <string name="btn_continue">Continuar</string>
+    <string name="btn_close">Fechar</string>
+    <string name="btn_understood">Entendi</string>
+    <string name="monetary_format">R$ %s</string>
+    <string name="in_dev_explanation">Ops! Essa feature ainda esta em desenvolvimento. Tente novamente no futuro.</string>
+    <string name="cannot_proceed_generic_error">Ops! Não foi possível concluir. Tente novamente mais tarde.</string>
 
     <!-- signup email step -->
     <string name="type_your_email_title">Vamos criar sua conta!</string>
@@ -37,7 +42,8 @@
     <string name="btn_password_recovery">Recuperar senha</string>
     <string name="password_recovery_title">Vamos recuperar sua senha</string>
     <string name="password_recovery_description">Você receberá por e-mail as instruções para recuperar sua senha</string>
-    <string name="password_recovery_send_success">Sucesso! Confira no seu email as orientações para recuperar sua senha.</string>
+    <string name="password_recovery_send_success_title">Sucesso ao enviar o email</string>
+    <string name="password_recovery_send_success_description">Confira no seu email as orientações para recuperar sua senha.</string>
     <string name="password_recovery_error">Ops! Não foi possível concluir, tente novamente.</string>
 
     <!-- Home -->
@@ -71,6 +77,14 @@
     <string name="create_goal_init_date_place_holder">Defina a data de início para o seu objetivo</string>
     <string name="create_goal_finish_date_hint">Data de conclusão</string>
     <string name="create_goal_finish_date_place_holder">Defina a data para conclusão do seu objetivo</string>
+    <string name="create_goal_with_success_title">Objetivo criado com sucesso</string>
+    <string name="create_goal_with_success_description">Seu objetivo foi cadastrado com sucesso! Agora é possível acompanhar registrar o progresso</string>
+
+    <!-- create goals errors -->
+    <string name="create_goals_generic_input_error">Não foi possível prosseguir. Por favor, verifique os campos.</string>
+    <string name="create_goals_title_error">Crie um nome para o seu objetivo</string>
+    <string name="create_goals_value_error">Defina um valor válido para o seu objetivo</string>
+    <string name="create_goals_date_error">Data inválida</string>
 
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
@@ -86,6 +100,24 @@
     <string name="goal_details_title">Aqui estão os detalhes do seu objetivo</string>
     <string name="goal_details_description">Acompanhe sua meta e registre seu progresso.</string>
     <string name="goal_details_register_progress">Registrar progresso</string>
+    <string name="goal_details_total_value">Total: R$ %s</string>
+    <string name="goal_details_remaining_value">Restante: R$ %s</string>
+    <string name="goal_details_month_frequency">Aporte mensal</string>
+    <string name="goal_details_week_frequency">Aporte semanal</string>
+    <string name="goal_details_fixed_value">Valor fixo</string>
+    <string name="goal_details_relative_value">Aumento gradual</string>
+    <string name="goal_details_delete_goal">Deletar objetivo</string>
+    <string name="goal_details_delete_dialog_title">Excluir objetivo</string>
+    <string name="goal_details_delete_dialog_message">Você tem certeza que deseja excluir esse objetivo? Essa ação é irreversível</string>
+    <string name="goal_delete_success_title">Objetivo deletado com sucesso</string>
+    <string name="goal_delete_success_description">Seu objetivo foi deletado. Você pode cadastrar um novo quando desejar.</string>
+
+    <!-- goal increment -->
+    <string name="goal_increment_top_bar">Registrar progresso</string>
+    <string name="goal_increment_title">Vamos registrar o seu avanço!</string>
+    <string name="goal_increment_description">Você está cada vez mais perto de alcançar seu objetivo</string>
+    <string name="goal_increment_success_feedback_title">Sucesso!</string>
+    <string name="goal_increment_success_feedback_description">Registramos o seu progresso com sucesso</string>
 
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>
@@ -93,21 +125,32 @@
     <string name="calculate_rate_value_hint">Valor</string>
     <string name="calculate_rate_value_placeholder">Informe o valor</string>
     <string name="calculate_rate_hint">Taxa</string>
+    <string name="calculate_rate_placeholder_percent">%</string>
     <string name="calculate_rate_placeholder">Informe a taxa de juros</string>
+    <string name="calculate_rate_period_hint">Informe o período de tempo (meses/anos)</string>
     <string name="calculate_rate_month">Ao mês</string>
     <string name="calculate_rate_year">Ao ano</string>
     <string name="calculate_rates_button_calculate">Calcular</string>
+    <string name="calculate_rates_vehicle_option">Taxa de juros para aquisição de veículos</string>
+    <string name="calculate_rates_house_option">Taxa de juros para aquisição de imóveis</string>
+    <string name="calculate_rates_other_option">Taxa de juros para aquisição de outros bens</string>
+    <string name="calculate_rates_credit_option">Taxa de juros das operações de crédito em geral</string>
 
     <!-- calculate rates result -->
     <string name="rates_result_title">Taxa de juros calculada</string>
     <string name="rates_result_subtitle">Esses são os resultados obtidos</string>
-    <string name="rates_result_info_value">Montante R$ %s</string>
+    <string name="rates_result_info_value">Montante %s</string>
     <string name="rates_result_info_rate">Taxa de juros: %s</string>
-    <string name="rates_result_info_value_rate">Valor com juros: R$ %s</string>
+    <string name="rates_result_info_value_rate">Valor com juros: %s</string>
+    <string name="rates_result_info_part_rate">Valor por parcela: %s</string>
     <string name="rates_result_info_rate_general">A taxa de juros média do mercado para esse tipo de serviço é de %s</string>
 
     <!-- profile -->
     <string name="profile_edit_details">Editar informações</string>
     <string name="profile_delete_account">Deletar conta</string>
     <string name="profile_salutation">Olá, %s</string>
+    <string name="profile_email">Email: %s</string>
+    <string name="profile_notification">Receber notificações: sim</string>
+    <string name="profile_goals">Objetivos alcançados: %s</string>
+    <string name="profile_rates">Taxas de juros calculadas: %s</string>
 </resources>

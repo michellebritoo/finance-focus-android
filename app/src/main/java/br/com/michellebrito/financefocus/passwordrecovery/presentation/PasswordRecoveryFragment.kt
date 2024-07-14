@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
+import br.com.michellebrito.financefocus.common.presentation.FeedbackFragmentDirections
 import br.com.michellebrito.financefocus.databinding.FragmentPasswordRecoveryBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
@@ -53,9 +54,14 @@ class PasswordRecoveryFragment : Fragment(R.layout.fragment_password_recovery) {
     }
 
     private fun onSuccess() {
-        this@PasswordRecoveryFragment.view?.let {
-            Snackbar.make(it, R.string.password_recovery_send_success, Snackbar.LENGTH_LONG).show()
-        }
+        val action = FeedbackFragmentDirections.actionGlobalFeedbackFragment(
+            title = getString(R.string.password_recovery_send_success_title),
+            description = getString(R.string.password_recovery_send_success_description),
+            buttonText = getString(R.string.btn_understood),
+            onCloseAction = R.id.welcomeFragment,
+            type = "email"
+        )
+        findNavController().navigate(action)
     }
 
     private fun onError() {
