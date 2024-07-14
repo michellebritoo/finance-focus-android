@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".goal.create.createsecondstep.presentation.CreateGoalSecondStepFragment">
+    tools:context=".goal.create.presentation.secondtep.CreateGoalSecondStepFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_twenty_four"
         android:layout_marginTop="@dimen/margin_eight"
+        app:checkedButton="@id/btn_frequency_month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_frequency_subtitle"
@@ -127,6 +128,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_twenty_four"
         android:layout_marginTop="@dimen/margin_eight"
+        app:checkedButton="@id/btn_value_relative"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_progress_subtitle"

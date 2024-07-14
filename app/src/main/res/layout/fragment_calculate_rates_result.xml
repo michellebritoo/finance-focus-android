@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".rates.result.CalculateRatesResultFragment">
+    tools:context=".rates.result.presentation.CalculateRatesResultFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
@@ -30,7 +30,7 @@
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_sixty"
+        android:layout_marginTop="@dimen/margin_twenty_four"
         android:text="@string/rates_result_title"
         android:textSize="@dimen/text_size_sixteen"
         app:layout_constraintEnd_toEndOf="parent"
@@ -83,7 +83,7 @@
         app:text="@string/rates_result_info_value_rate" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
-        android:id="@+id/info_global_rate"
+        android:id="@+id/info_part_value"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
@@ -91,7 +91,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/info_value_rate"
-        app:text="A taxa de juros média do mercado para esse tipo de serviço é de 3%"
+        app:text="@string/rates_result_info_part_rate" />
+
+    <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
+        android:id="@+id/info_global_rate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginVertical="@dimen/margin_eight"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/info_part_value"
+        tools:text="A taxa de juros média do mercado para esse tipo de serviço é de 3%"
         app:typeWarning="true" />
 
     <com.github.mikephil.charting.charts.LineChart

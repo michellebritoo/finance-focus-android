@@ -41,7 +41,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_twenty_four"
-        android:text="Olá, Cristiane"
+        tools:text="Olá, Cristiane"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ic_profile" />
@@ -54,7 +54,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_salutation"
-        app:text="Email: cristiane@email.com" />
+        tools:text="Email: cristiane@email.com" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
         android:id="@+id/td_notifications"
@@ -64,7 +64,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/td_email"
-        app:text="Receber notificações: sim" />
+        tools:text="@string/profile_notification" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
         android:id="@+id/td_goals"
@@ -74,7 +74,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/td_notifications"
-        app:text="Objetivos alcançados: 5" />
+        tools:text="Objetivos alcançados: 5" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomDisplayer
         android:id="@+id/td_rates"
@@ -84,7 +84,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/td_goals"
-        app:text="Taxas de juros calculadas: 10" />
+        tools:text="Taxas de juros calculadas: 10" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
         android:id="@+id/btn_edit_details"

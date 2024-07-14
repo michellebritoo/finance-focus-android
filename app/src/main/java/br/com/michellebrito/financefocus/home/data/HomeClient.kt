@@ -1,9 +1,9 @@
-package br.com.michellebrito.financefocus.welcome.data
+package br.com.michellebrito.financefocus.home.data
 
 import retrofit2.http.Header
 import retrofit2.http.POST
 
-interface WelcomeClient {
+interface HomeClient {
 
     @POST(REFRESH_DEVICE_TOKEN)
     suspend fun sendDeviceToken(

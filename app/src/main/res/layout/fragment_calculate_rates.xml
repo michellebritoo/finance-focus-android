@@ -43,20 +43,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_sixteen"
-        android:layout_marginTop="@dimen/margin_sixty"
-        android:hint="@string/calculate_rate_value_hint"
-        android:inputType="textNoSuggestions|numberDecimal"
+        android:layout_marginTop="@dimen/margin_twenty_four"
+        android:hint="@string/calculate_rate_value_placeholder"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tv_title"
-        app:placeholderText="@string/calculate_rate_value_placeholder">
+        app:placeholderText="@string/crate_goal_value_placeholder">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_value"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions|number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -66,19 +65,38 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/margin_sixteen"
-        android:hint="@string/calculate_rate_hint"
-        android:inputType="textNoSuggestions|numberDecimal"
+        android:hint="@string/calculate_rate_placeholder"
         app:endIconMode="clear_text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/til_value"
-        app:placeholderText="@string/calculate_rate_placeholder">
+        app:placeholderText="@string/calculate_rate_placeholder_percent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/et_rate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textNoSuggestions" />
+            android:inputType="textNoSuggestions|number" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/til_period"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        android:hint="@string/calculate_rate_period_hint"
+        app:endIconMode="clear_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/til_rate">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_period"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -88,20 +106,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="@dimen/margin_twenty_four"
         android:layout_marginTop="@dimen/margin_sixteen"
+        app:checkedButton="@id/btn_frequency_month"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/til_rate"
+        app:layout_constraintTop_toBottomOf="@id/til_period"
         app:singleSelection="true">
-
-        <Button
-            android:id="@+id/btn_frequency_week"
-            style="?attr/materialButtonOutlinedStyle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:paddingStart="0dp"
-            android:paddingEnd="0dp"
-            android:text="@string/calculate_rate_month" />
 
         <Button
             android:id="@+id/btn_frequency_month"
@@ -111,8 +120,28 @@
             android:layout_weight="1"
             android:paddingStart="0dp"
             android:paddingEnd="0dp"
+            android:text="@string/calculate_rate_month" />
+
+        <Button
+            android:id="@+id/btn_frequency_year"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingStart="0dp"
+            android:paddingEnd="0dp"
             android:text="@string/calculate_rate_year" />
     </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    <Spinner
+        android:id="@+id/spinner_options"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_sixteen"
+        android:layout_marginTop="@dimen/margin_twenty_four"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tg_rates_frequency" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
         android:id="@+id/btn_calculate"

@@ -6,5 +6,6 @@ sealed class SignUpPasswordEvent {
     data object PasswordNotEquals : SignUpPasswordEvent()
     data object ShowLoading: SignUpPasswordEvent()
     data object HideLoading: SignUpPasswordEvent()
+    data object ShowError: SignUpPasswordEvent()
     data class RegisterResult(val isSuccess: Boolean) : SignUpPasswordEvent()
 }
