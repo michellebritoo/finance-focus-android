@@ -30,8 +30,10 @@ class ListIncrementAdapter(private val list: List<ListIncrementItemModel>
         private val incrementItem = IncrementItemBinding.bind(itemView)
 
         fun bindView(item: ListIncrementItemModel) {
+            val context = itemView.context
+
             with(incrementItem) {
-                tvIncrementValue.text = "Valor: R$" + item.value
+                tvIncrementValue.text = context.getString(R.string.monetary_format, String.format("%.2f", item.value))
                 if (item.completed) {
                     btnStatus.setImageResource(R.drawable.ic_check_ok)
                 } else {
