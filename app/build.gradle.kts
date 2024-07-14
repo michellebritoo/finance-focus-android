@@ -50,6 +50,9 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.7.0")
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0")
     implementation("com.google.android.material:material:1.11.0")
+    implementation("com.squareup.retrofit2:retrofit:2.7.2")
+    implementation("com.squareup.retrofit2:converter-gson:2.7.2")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.9.1")
     implementation("io.insert-koin:koin-core:2.2.3")
     implementation("io.insert-koin:koin-android:2.2.3")
     implementation("io.insert-koin:koin-androidx-viewmodel:2.2.3")
@@ -61,6 +64,7 @@ dependencies {
     implementation("com.github.mancj:SlimChart:0.1.2")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-full:1.5.9")
     implementation("com.github.kirich1409:viewbindingpropertydelegate-noreflection:1.5.9")
+    implementation("com.google.firebase:firebase-messaging:24.0.0")
 
     testImplementation("junit:junit:4.13.2")
 

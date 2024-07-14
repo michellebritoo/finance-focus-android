@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import br.com.michellebrito.financefocus.MainActivity
 import br.com.michellebrito.financefocus.R
 import br.com.michellebrito.financefocus.databinding.FragmentWelcomeBinding
 import by.kirich1409.viewbindingdelegate.viewBinding
@@ -18,6 +19,7 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
         viewModel.getAuthInfo()
         setupListeners()
         setupObservers()
+        getDeviceToken()
     }
 
     private fun setupListeners() = with(binding) {
@@ -32,6 +34,12 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
     private fun setupObservers() {
         viewModel.isUserAuthenticated.observe(viewLifecycleOwner) { authenticaded ->
             if (authenticaded) findNavController().navigate(R.id.homeFragment)
+        }
+    }
+
+    private fun getDeviceToken() {
+        (requireActivity() as MainActivity).getDeviceToken {
+            viewModel.refreshDeviceToken(it)
         }
     }
 }
