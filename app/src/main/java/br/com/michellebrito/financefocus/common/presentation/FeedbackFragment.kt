@@ -20,10 +20,12 @@ class FeedbackFragment : Fragment(R.layout.fragment_feedback) {
         val description = args.description
         val buttonText = args.buttonText
         val onCloseAction = args.onCloseAction
+        val type = args.type
 
         binding.customFeedback.setTitle(title)
         binding.customFeedback.setDescription(description)
         binding.customFeedback.setButton(buttonText)
+        binding.customFeedback.setType(type)
 
         binding.customFeedback.setOnButtonClickListener {
             findNavController().navigate(onCloseAction)

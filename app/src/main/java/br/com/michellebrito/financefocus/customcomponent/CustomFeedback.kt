@@ -33,6 +33,12 @@ class CustomFeedback @JvmOverloads constructor(
         binding.topBar.setOnClickListener { listener() }
     }
 
+    fun setType(type: String) {
+        if (type == "email") {
+            binding.animation.setAnimation(R.raw.animation_email)
+        }
+    }
+
     private fun setLayout(attrs: AttributeSet?) {
         attrs?.let { attributeSet ->
             val attributes = context.obtainStyledAttributes(

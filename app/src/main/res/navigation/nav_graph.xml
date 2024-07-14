@@ -165,6 +165,10 @@
         <argument
             android:name="onCloseAction"
             app:argType="reference" />
+        <argument
+            android:name="type"
+            app:argType="string"
+            android:defaultValue="success"/>
     </fragment>
     <action
         android:id="@+id/action_global_feedbackFragment"
