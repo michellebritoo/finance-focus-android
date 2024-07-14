@@ -38,6 +38,7 @@ import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesClie
 import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesRepositoryImpl
 import br.com.michellebrito.financefocus.rates.calculate.domain.CalculateRatesRepository
 import br.com.michellebrito.financefocus.rates.calculate.presentation.CalculateRatesViewModel
+import br.com.michellebrito.financefocus.signup.data.SignUpClient
 import br.com.michellebrito.financefocus.signup.data.SignUpRepositoryImpl
 import br.com.michellebrito.financefocus.signup.domain.SignUpRepository
 import br.com.michellebrito.financefocus.signup.presentation.emailstep.SignUpEmailViewModel
@@ -51,6 +52,7 @@ import org.koin.dsl.module
 val AppModule = module {
     single<PreferenceStorage> { PreferencesStorageImpl(get()) }
 
+    factory { RetrofitInstance.getInstance().create(SignUpClient::class.java) }
     factory { RetrofitInstance.getInstance().create(HomeClient::class.java) }
     factory { RetrofitInstance.getInstance().create(ProfileClient::class.java) }
     factory { RetrofitInstance.getInstance().create(CalculateRatesClient::class.java) }
@@ -63,7 +65,7 @@ val AppModule = module {
     factory<WelcomeRepository> { WelcomeRepositoryImpl(get()) }
     factory<HomeRepository> { HomeRepositoryImpl(get(), get()) }
     factory<CalculateRatesRepository> { CalculateRatesRepositoryImpl(get(), get()) }
-    factory<SignUpRepository> { SignUpRepositoryImpl(get()) }
+    factory<SignUpRepository> { SignUpRepositoryImpl(get(), get()) }
     factory<PasswordRecoveryRepository> { PasswordRepositoryImpl() }
     factory<ProfileRepository> { ProfileRepositoryImpl(get(), get()) }
     factory<CreateGoalRepository> { CreateGoalRepositoryImpl(get(), get()) }
