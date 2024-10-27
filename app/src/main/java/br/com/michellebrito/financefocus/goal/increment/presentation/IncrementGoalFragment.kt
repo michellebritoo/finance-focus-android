@@ -29,7 +29,8 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         floatingActionButton.setOnClickListener {
-            val bottomSheet = NumberInputBottomSheet { number ->
+            val bottomSheet = NumberInputBottomSheet { value ->
+                viewModel.incrementDifferentValueGoal(value.toFloat())
             }
             bottomSheet.show(childFragmentManager, NumberInputBottomSheet::class.java.name)
         }

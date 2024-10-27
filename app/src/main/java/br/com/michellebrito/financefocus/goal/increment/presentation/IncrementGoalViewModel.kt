@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.michellebrito.financefocus.goal.increment.domain.ExpectedDepositResponse
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementGoalRepository
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementModelRequest
 import br.com.michellebrito.financefocus.goal.increment.domain.ListIncrementItemModel
@@ -14,6 +15,7 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
     val viewState: LiveData<IncrementGoalEvent> = _viewState
 
     private var goalId: String = ""
+    private var depositList = listOf<ExpectedDepositResponse>()
 
     fun onStart(id: String) {
         this.goalId = id
@@ -28,6 +30,17 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         }
     }
 
+    fun incrementDifferentValueGoal(value: Float) {
+        if (isValidValue(value).not()) {
+            sendUIEvent(IncrementGoalEvent.InvalidValue)
+        } else {
+            sendIncrementGoalRequest(
+                id = depositList.filter { it.completed.not() }.firstOrNull()?.id.orEmpty(),
+                value = value
+            )
+        }
+    }
+
     private fun isValidValue(value: Float): Boolean {
         return value > 0f
     }
@@ -38,6 +51,7 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
             repository.getExpectedDeposits(
                 id = goalId,
                 onSuccess = {
+                    depositList = it.body() ?: listOf()
                     val list = it.body()?.map { deposits ->
                         ListIncrementItemModel(
                             id = deposits.id,
