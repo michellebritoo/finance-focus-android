@@ -123,6 +123,9 @@
     <string name="increment_goal_bottom_sheet_title">Deseja registrar um valor diferente?</string>
     <string name="increment_goal_bottom_sheet_input">Informe o valor</string>
     <string name="increment_goal_bottom_sheet_error">Por favor, insira um número válido</string>
+    <string name="increment_goal_congratulation_title">Parabéns!</string>
+    <string name="increment_goal_congratulation_description">Esse objetivo já foi alcançado, relembre sua jornada</string>
+    <string name="cannot_proceed_has_deposit_completed">Esse deposito já foi registrado</string>
 
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>
