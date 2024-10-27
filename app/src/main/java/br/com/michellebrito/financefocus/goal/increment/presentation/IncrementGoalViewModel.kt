@@ -13,18 +13,18 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
     private val _viewState = MutableLiveData<IncrementGoalEvent>()
     val viewState: LiveData<IncrementGoalEvent> = _viewState
 
-    private var id: String = ""
+    private var goalId: String = ""
 
     fun onStart(id: String) {
-        this.id = id
+        this.goalId = id
         getExpectedGoals()
     }
 
-    fun incrementGoal(value: Float) {
-        if (isValidValue(value).not()) {
-            sendUIEvent(IncrementGoalEvent.InvalidValue)
-        } else {
-            sendIncrementGoalRequest(value)
+    fun incrementGoal(id: String, value: Float, completed: Boolean) {
+        when {
+            isValidValue(value).not() -> sendUIEvent(IncrementGoalEvent.InvalidValue)
+            completed -> sendUIEvent(IncrementGoalEvent.HasCompletedDeposit)
+            else -> sendIncrementGoalRequest(id, value)
         }
     }
 
@@ -36,10 +36,11 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         viewModelScope.launch {
             sendUIEvent(IncrementGoalEvent.ShowLoading)
             repository.getExpectedDeposits(
-                id = id,
+                id = goalId,
                 onSuccess = {
                     val list = it.body()?.map { deposits ->
                         ListIncrementItemModel(
+                            id = deposits.id,
                             value = deposits.value,
                             completed = deposits.completed
                         )
@@ -54,11 +55,11 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         }
     }
 
-    private fun sendIncrementGoalRequest(value: Float) {
+    private fun sendIncrementGoalRequest(id: String, value: Float) {
         viewModelScope.launch {
             sendUIEvent(IncrementGoalEvent.ShowLoading)
             repository.sendIncrementRequest(
-                model = IncrementModelRequest(id, value),
+                model = IncrementModelRequest(goalId, id, value),
                 onSuccess = {
                     sendUIEvent(IncrementGoalEvent.OnIncrementWithSuccess)
                 },

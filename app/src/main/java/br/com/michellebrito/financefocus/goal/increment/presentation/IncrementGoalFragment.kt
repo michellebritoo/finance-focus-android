@@ -28,6 +28,11 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
+        floatingActionButton.setOnClickListener {
+            val bottomSheet = NumberInputBottomSheet { number ->
+            }
+            bottomSheet.show(childFragmentManager, NumberInputBottomSheet::class.java.name)
+        }
     }
 
     private fun observeEvents() {
@@ -37,7 +42,8 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
                 is IncrementGoalEvent.HideLoading -> hideLoading()
                 is IncrementGoalEvent.ShowExpectedDeposits -> showList(state.list)
                 is IncrementGoalEvent.ShowError -> showError()
-                is IncrementGoalEvent.InvalidValue -> Unit
+                is IncrementGoalEvent.InvalidValue -> showError()
+                is IncrementGoalEvent.HasCompletedDeposit -> showError()
                 is IncrementGoalEvent.OnIncrementWithSuccess -> showSuccessIncrementFeedback()
             }
         }
@@ -56,7 +62,7 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
     private fun showList(list: List<ListIncrementItemModel>) = with(binding) {
         rvIncrementList.adapter = ListIncrementAdapter(list).apply {
             onItemClick = {
-                viewModel.incrementGoal(it.value)
+                viewModel.incrementGoal(it.id, it.value, it.completed)
             }
         }
     }
