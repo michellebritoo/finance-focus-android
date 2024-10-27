@@ -4,6 +4,7 @@
     <string name="btn_create_account">Criar conta</string>
     <string name="btn_continue">Continuar</string>
     <string name="btn_close">Fechar</string>
+    <string name="btn_confirm">Confirmar</string>
     <string name="btn_understood">Entendi</string>
     <string name="monetary_format">R$ %s</string>
     <string name="in_dev_explanation">Ops! Essa feature ainda esta em desenvolvimento. Tente novamente no futuro.</string>
@@ -118,6 +119,10 @@
     <string name="goal_increment_description">Você está cada vez mais perto de alcançar seu objetivo</string>
     <string name="goal_increment_success_feedback_title">Sucesso!</string>
     <string name="goal_increment_success_feedback_description">Registramos o seu progresso com sucesso</string>
+    <string name="goal_increment_float_button_description">Registramos um valor diferente</string>
+    <string name="increment_goal_bottom_sheet_title">Deseja registrar um valor diferente?</string>
+    <string name="increment_goal_bottom_sheet_input">Informe o valor</string>
+    <string name="increment_goal_bottom_sheet_error">Por favor, insira um número válido</string>
 
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>
