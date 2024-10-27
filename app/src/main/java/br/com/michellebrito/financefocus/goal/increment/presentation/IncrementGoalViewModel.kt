@@ -14,12 +14,16 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
     private val _viewState = MutableLiveData<IncrementGoalEvent>()
     val viewState: LiveData<IncrementGoalEvent> = _viewState
 
+    private var goalCompleted = false
     private var goalId: String = ""
     private var depositList = listOf<ExpectedDepositResponse>()
 
-    fun onStart(id: String) {
+    fun onStart(id: String, completed: Boolean) {
+        this.goalCompleted = completed
         this.goalId = id
         getExpectedGoals()
+
+        if (completed) sendUIEvent(IncrementGoalEvent.HasCompletedGoal)
     }
 
     fun incrementGoal(id: String, value: Float, completed: Boolean) {

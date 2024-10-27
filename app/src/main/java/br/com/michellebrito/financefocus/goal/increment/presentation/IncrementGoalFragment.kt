@@ -1,5 +1,6 @@
 package br.com.michellebrito.financefocus.goal.increment.presentation
 
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -20,7 +21,7 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
 
         val args = arguments?.let { IncrementGoalFragmentArgs.fromBundle(it) }
         args?.let {
-            viewModel.onStart(args.goaltoincrement)
+            viewModel.onStart(args.goaltoincrement, args.goalcomplete)
         }
         setupListeners()
         observeEvents()
@@ -44,7 +45,8 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
                 is IncrementGoalEvent.ShowExpectedDeposits -> showList(state.list)
                 is IncrementGoalEvent.ShowError -> showError()
                 is IncrementGoalEvent.InvalidValue -> showError()
-                is IncrementGoalEvent.HasCompletedDeposit -> showError()
+                is IncrementGoalEvent.HasCompletedDeposit -> showHasCompletedDepositFeedback()
+                is IncrementGoalEvent.HasCompletedGoal -> hasCompletedGoal()
                 is IncrementGoalEvent.OnIncrementWithSuccess -> showSuccessIncrementFeedback()
             }
         }
@@ -58,6 +60,21 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
         this@IncrementGoalFragment.view?.let {
             Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun showHasCompletedDepositFeedback() {
+        this@IncrementGoalFragment.view?.let {
+            Snackbar.make(it, R.string.cannot_proceed_has_deposit_completed, Snackbar.LENGTH_LONG).show()
+        }
+    }
+
+    private fun hasCompletedGoal() = with(binding) {
+        floatingActionButton.isVisible = false
+        animation.isVisible = true
+        animation.playAnimation()
+
+        tvIncrementTitle.text = getString(R.string.increment_goal_congratulation_title)
+        tvIncrementDescription.text = getString(R.string.increment_goal_congratulation_description)
     }
 
     private fun showList(list: List<ListIncrementItemModel>) = with(binding) {

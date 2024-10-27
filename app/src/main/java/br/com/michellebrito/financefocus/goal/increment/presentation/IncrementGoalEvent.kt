@@ -9,5 +9,6 @@ sealed class IncrementGoalEvent {
     data object ShowError: IncrementGoalEvent()
     data object OnIncrementWithSuccess: IncrementGoalEvent()
     data object HasCompletedDeposit: IncrementGoalEvent()
+    data object HasCompletedGoal: IncrementGoalEvent()
     data class ShowExpectedDeposits(val list: List<ListIncrementItemModel>): IncrementGoalEvent()
 }
