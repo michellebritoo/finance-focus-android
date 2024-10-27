@@ -41,7 +41,7 @@
         android:id="@+id/tv_increment_description"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/margin_eight"
+        android:layout_margin="@dimen/margin_eight"
         android:padding="@dimen/margin_eight"
         android:text="@string/goal_increment_description"
         android:textAlignment="center"
