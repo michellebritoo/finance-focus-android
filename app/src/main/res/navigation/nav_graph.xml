@@ -181,5 +181,8 @@
         <argument
             android:name="goaltoincrement"
             app:argType="string"/>
+        <argument
+            android:name="goalcomplete"
+            app:argType="boolean"/>
     </fragment>
 </navigation>

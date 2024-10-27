@@ -5,6 +5,7 @@ sealed class GoalDetailEvent {
     data object HideLoading: GoalDetailEvent()
     data object ShowError: GoalDetailEvent()
     data object OnSuccessDelete: GoalDetailEvent()
+    data object HasCompletedGoal: GoalDetailEvent()
     data class ShowGoal(
         val name: String,
         val description: String,
@@ -15,4 +16,5 @@ sealed class GoalDetailEvent {
         val gradualProgress: Boolean,
         val monthFrequency: Boolean
     ): GoalDetailEvent()
+    data class GoToIncrementScreen(val id: String, val completed: Boolean): GoalDetailEvent()
 }

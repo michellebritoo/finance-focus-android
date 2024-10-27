@@ -1,6 +1,7 @@
 package br.com.michellebrito.financefocus.goal.details.presentation
 
 import android.app.AlertDialog
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -14,7 +15,6 @@ import org.koin.android.ext.android.inject
 class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
     private val binding: FragmentGoalDetailsBinding by viewBinding()
     private val viewModel: GoalDetailsViewModel by inject()
-    private var id = ""
 
     override fun onResume() {
         super.onResume()
@@ -23,14 +23,13 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
         val args = arguments?.let { GoalDetailsFragmentArgs.fromBundle(it) }
         args?.let {
             viewModel.getGoalRequest(args.idgoal)
-            this.id = args.idgoal
         }
     }
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         btnDeleteGoal.setOnClickListener { onDeleteGoalClicked() }
-        btnIncrementGoal.setOnClickListener { goToIncrementScreen() }
+        btnIncrementGoal.setOnClickListener { viewModel.onIncrementClicked() }
         bottomNavigation.selectedItemId = R.id.item_goals
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
@@ -60,6 +59,7 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
                 is GoalDetailEvent.HideLoading -> hideLoading()
                 is GoalDetailEvent.ShowError -> showError()
                 is GoalDetailEvent.OnSuccessDelete -> onDeleteWithSuccess()
+                is GoalDetailEvent.HasCompletedGoal -> hasCompletedGoal()
                 is GoalDetailEvent.ShowGoal -> showGoal(
                     state.name,
                     state.description,
@@ -70,6 +70,7 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
                     state.gradualProgress,
                     state.monthFrequency
                 )
+                is GoalDetailEvent.GoToIncrementScreen -> goToIncrementScreen(state.id, state.completed)
                 else -> Unit
             }
         }
@@ -85,8 +86,8 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
         findNavController().navigate(action)
     }
 
-    private fun goToIncrementScreen() {
-        val action = GoalDetailsFragmentDirections.actionGoalDetailsFragmentToIncrementGoalFragment(id)
+    private fun goToIncrementScreen(id: String, completed: Boolean) {
+        val action = GoalDetailsFragmentDirections.actionGoalDetailsFragmentToIncrementGoalFragment(id, completed)
         findNavController().navigate(action)
     }
 
@@ -98,6 +99,11 @@ class GoalDetailsFragment : Fragment(R.layout.fragment_goal_details) {
         this@GoalDetailsFragment.view?.let {
             Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun hasCompletedGoal() = with(binding) {
+        animation.isVisible = true
+        animation.playAnimation()
     }
 
     private fun showGoal(
