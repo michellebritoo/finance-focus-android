@@ -1,6 +1,7 @@
 package br.com.michellebrito.financefocus.goal.list.presentation
 
 import androidx.activity.addCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -48,6 +49,7 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 is ListGoalEvent.HideLoading -> hideLoading()
                 is ListGoalEvent.ShowList -> showList(state.list)
                 is ListGoalEvent.ShowError -> showError()
+                is ListGoalEvent.ShowEmptyState -> showEmptyState()
             }
         }
     }
@@ -60,6 +62,15 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
         this@ListGoalFragment.view?.let {
             Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
         }
+    }
+
+    private fun showEmptyState() = with(binding) {
+        animation.isVisible = true
+        animation.playAnimation()
+
+        rvGoalList.isVisible = false
+        tilSearch.isVisible = false
+        tvTitle.text= getString(R.string.list_goal_title_empty_state)
     }
 
     private fun showList(list: List<ListGoalItemModel>) = with(binding) {

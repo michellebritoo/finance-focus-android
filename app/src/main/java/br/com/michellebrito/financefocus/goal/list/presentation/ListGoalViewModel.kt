@@ -24,7 +24,11 @@ class ListGoalViewModel(private val repository: ListGoalRepository): ViewModel()
                             id = goal.id
                         )
                     }
-                   list?.let { sendUIEvent(ListGoalEvent.ShowList(it)) }
+                   if (list != null && list != emptyList<ListGoalItemModel>()) {
+                       sendUIEvent(ListGoalEvent.ShowList(list))
+                   } else {
+                       sendUIEvent(ListGoalEvent.ShowEmptyState)
+                   }
                 },
                 onError = {
                     sendUIEvent(ListGoalEvent.ShowError)
