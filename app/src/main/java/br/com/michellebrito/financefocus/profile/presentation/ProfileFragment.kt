@@ -22,7 +22,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
-        btnEditDetails.setOnClickListener { showInDevInfo() }
+        btnEditDetails.setOnClickListener { findNavController().navigate(R.id.editProfileFragment) }
         btnDeleteAccount.setOnClickListener { viewModel.onDeleteAccountClicked() }
         btnEditLogout.setOnClickListener { viewModel.onLogoutClicked() }
 
@@ -75,12 +75,6 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     private fun showError() {
         this@ProfileFragment.view?.let {
             Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
-        }
-    }
-
-    private fun showInDevInfo() {
-        this@ProfileFragment.view?.let {
-            Snackbar.make(it, R.string.in_dev_explanation, Snackbar.LENGTH_LONG).show()
         }
     }
 }
