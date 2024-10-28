@@ -26,6 +26,10 @@ class PreferencesStorageImpl(context: Context) : PreferenceStorage {
         return sharedPreferences.getString(key, null).orEmpty()
     }
 
+    override fun clearStorage() {
+        sharedPreferences.edit().clear().apply()
+    }
+
     private companion object {
         const val FINANCE_FOCUS_STORAGE = "finance_focus_storage"
     }

@@ -157,6 +157,7 @@
 
     <!-- profile -->
     <string name="profile_edit_details">Editar informações</string>
+    <string name="profile_edit_logout">Sair</string>
     <string name="profile_delete_account">Deletar conta</string>
     <string name="profile_salutation">Olá, %s</string>
     <string name="profile_email">Email: %s</string>

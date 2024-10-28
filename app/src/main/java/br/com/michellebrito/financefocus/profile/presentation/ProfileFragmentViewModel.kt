@@ -42,6 +42,28 @@ class ProfileFragmentViewModel(private val repository: ProfileRepository) : View
         }
     }
 
+    fun onDeleteAccountClicked() {
+        sendUIEvent(ProfileEvent.ShowLoading)
+        viewModelScope.launch {
+            repository.deleteUser(
+                onSuccess = { sendUIEvent(ProfileEvent.Logout) },
+                onError = { sendUIEvent(ProfileEvent.ShowError) }
+            )
+            sendUIEvent(ProfileEvent.HideLoading)
+        }
+    }
+
+    fun onLogoutClicked() {
+        sendUIEvent(ProfileEvent.ShowLoading)
+        viewModelScope.launch {
+            repository.logout(
+                onSuccess = { sendUIEvent(ProfileEvent.Logout) },
+                onError = { sendUIEvent(ProfileEvent.ShowError) }
+            )
+            sendUIEvent(ProfileEvent.HideLoading)
+        }
+    }
+
     private fun sendUIEvent(event: ProfileEvent) {
         _viewState.value = event
     }
