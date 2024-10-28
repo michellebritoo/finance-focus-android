@@ -29,7 +29,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
         bottomNavigation.selectedItemId = R.id.item_profile
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.item_rates -> findNavController().navigate(R.id.goalDetailsFragment)
+                R.id.item_rates -> findNavController().navigate(R.id.calculateRatesFragment)
                 R.id.item_goals -> findNavController().navigate(R.id.listGoalFragment)
             }
             true
