@@ -10,11 +10,14 @@ import br.com.michellebrito.financefocus.databinding.FragmentListGoalBinding
 import br.com.michellebrito.financefocus.goal.list.model.ListGoalItemModel
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import org.koin.android.ext.android.inject
 
 class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     private val binding: FragmentListGoalBinding by viewBinding()
     private val viewModel: ListGoalViewModel by inject()
+    private var firebaseAnalytics = Firebase.analytics
 
     override fun onResume() {
         super.onResume()
@@ -82,5 +85,6 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 findNavController().navigate(action)
             }
         }
+        firebaseAnalytics.setUserProperty("goals_list", list.size.toString())
     }
 }
