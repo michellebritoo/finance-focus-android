@@ -164,4 +164,6 @@
     <string name="profile_notification">Receber notificações: sim</string>
     <string name="profile_goals">Objetivos alcançados: %s</string>
     <string name="profile_rates">Taxas de juros calculadas: %s</string>
+    <string name="profile_edit_title">Vamos editar suas informações</string>
+    <string name="profile_edit_name">Digite seu nome</string>
 </resources>
