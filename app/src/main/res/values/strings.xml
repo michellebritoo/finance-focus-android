@@ -50,6 +50,7 @@
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
     <string name="btn_create_goal">Cadastrar objetivo</string>
+    <string name="btn_view_goals">Visualizar meus objetivos</string>
     <string name="btn_check_rates">Consultar taxas de juros</string>
 
     <!-- create goal -->
@@ -89,6 +90,7 @@
 
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
+    <string name="list_goal_title_empty_state">Parece que você ainda não cadastrou nenhum objetivo\nComeçe agora mesmo!</string>
     <string name="list_goal_search">Pesquisar</string>
 
     <!-- menu items -->
