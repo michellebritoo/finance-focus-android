@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.com.michellebrito.financefocus.goal.increment.domain.ExpectedDepositResponse
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementGoalRepository
 import br.com.michellebrito.financefocus.goal.increment.domain.IncrementModelRequest
 import br.com.michellebrito.financefocus.goal.increment.domain.ListIncrementItemModel
@@ -13,18 +14,34 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
     private val _viewState = MutableLiveData<IncrementGoalEvent>()
     val viewState: LiveData<IncrementGoalEvent> = _viewState
 
-    private var id: String = ""
+    private var goalCompleted = false
+    private var goalId: String = ""
+    private var depositList = listOf<ExpectedDepositResponse>()
 
-    fun onStart(id: String) {
-        this.id = id
+    fun onStart(id: String, completed: Boolean) {
+        this.goalCompleted = completed
+        this.goalId = id
         getExpectedGoals()
+
+        if (completed) sendUIEvent(IncrementGoalEvent.HasCompletedGoal)
     }
 
-    fun incrementGoal(value: Float) {
+    fun incrementGoal(id: String, value: Float, completed: Boolean) {
+        when {
+            isValidValue(value).not() -> sendUIEvent(IncrementGoalEvent.InvalidValue)
+            completed -> sendUIEvent(IncrementGoalEvent.HasCompletedDeposit)
+            else -> sendIncrementGoalRequest(id, value)
+        }
+    }
+
+    fun incrementDifferentValueGoal(value: Float) {
         if (isValidValue(value).not()) {
             sendUIEvent(IncrementGoalEvent.InvalidValue)
         } else {
-            sendIncrementGoalRequest(value)
+            sendIncrementGoalRequest(
+                id = depositList.filter { it.completed.not() }.firstOrNull()?.id.orEmpty(),
+                value = value
+            )
         }
     }
 
@@ -36,10 +53,12 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         viewModelScope.launch {
             sendUIEvent(IncrementGoalEvent.ShowLoading)
             repository.getExpectedDeposits(
-                id = id,
+                id = goalId,
                 onSuccess = {
+                    depositList = it.body() ?: listOf()
                     val list = it.body()?.map { deposits ->
                         ListIncrementItemModel(
+                            id = deposits.id,
                             value = deposits.value,
                             completed = deposits.completed
                         )
@@ -54,11 +73,11 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
         }
     }
 
-    private fun sendIncrementGoalRequest(value: Float) {
+    private fun sendIncrementGoalRequest(id: String, value: Float) {
         viewModelScope.launch {
             sendUIEvent(IncrementGoalEvent.ShowLoading)
             repository.sendIncrementRequest(
-                model = IncrementModelRequest(id, value),
+                model = IncrementModelRequest(goalId, id, value),
                 onSuccess = {
                     sendUIEvent(IncrementGoalEvent.OnIncrementWithSuccess)
                 },

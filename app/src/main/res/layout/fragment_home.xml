@@ -11,23 +11,13 @@
         android:id="@+id/tv_salutation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:text="@string/home_salutation"
         android:textSize="@dimen/text_size_twenty"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_create_goal"
-        android:layout_marginBottom="@dimen/margin_hundred"/>
-
-    <br.com.michellebrito.financefocus.customcomponent.CustomButton
-        android:id="@+id/btn_create_goal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/margin_sixteen"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:title="@string/btn_create_goal" />
+        app:layout_constraintBottom_toTopOf="@id/btn_check_rates"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <br.com.michellebrito.financefocus.customcomponent.CustomButton
         android:id="@+id/btn_check_rates"
@@ -36,7 +26,27 @@
         android:layout_margin="@dimen/margin_sixteen"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_create_goal"
+        app:layout_constraintTop_toBottomOf="@id/tv_salutation"
         app:title="@string/btn_check_rates" />
+
+    <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_create_goal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_check_rates"
+        app:title="@string/btn_create_goal" />
+
+    <br.com.michellebrito.financefocus.customcomponent.CustomButton
+        android:id="@+id/btn_view_goals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_sixteen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_create_goal"
+        app:title="@string/btn_view_goals" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
