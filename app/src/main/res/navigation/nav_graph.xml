@@ -181,5 +181,12 @@
         <argument
             android:name="goaltoincrement"
             app:argType="string"/>
+        <argument
+            android:name="goalcomplete"
+            app:argType="boolean"/>
     </fragment>
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="br.com.michellebrito.financefocus.profile.presentation.EditProfileFragment"
+        android:label="EditProfileFragment" />
 </navigation>

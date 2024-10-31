@@ -4,6 +4,7 @@ sealed class ProfileEvent {
     data object ShowLoading : ProfileEvent()
     data object HideLoading : ProfileEvent()
     data object ShowError: ProfileEvent()
+    data object Logout: ProfileEvent()
     data class ShowUserInfo(
         val name: String,
         val email: String,

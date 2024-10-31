@@ -1,6 +1,7 @@
 package br.com.michellebrito.financefocus.goal.list.presentation
 
 import androidx.activity.addCallback
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -9,11 +10,14 @@ import br.com.michellebrito.financefocus.databinding.FragmentListGoalBinding
 import br.com.michellebrito.financefocus.goal.list.model.ListGoalItemModel
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.analytics.ktx.analytics
+import com.google.firebase.ktx.Firebase
 import org.koin.android.ext.android.inject
 
 class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
     private val binding: FragmentListGoalBinding by viewBinding()
     private val viewModel: ListGoalViewModel by inject()
+    private var firebaseAnalytics = Firebase.analytics
 
     override fun onResume() {
         super.onResume()
@@ -48,6 +52,7 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 is ListGoalEvent.HideLoading -> hideLoading()
                 is ListGoalEvent.ShowList -> showList(state.list)
                 is ListGoalEvent.ShowError -> showError()
+                is ListGoalEvent.ShowEmptyState -> showEmptyState()
             }
         }
     }
@@ -62,6 +67,15 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
         }
     }
 
+    private fun showEmptyState() = with(binding) {
+        animation.isVisible = true
+        animation.playAnimation()
+
+        rvGoalList.isVisible = false
+        tilSearch.isVisible = false
+        tvTitle.text= getString(R.string.list_goal_title_empty_state)
+    }
+
     private fun showList(list: List<ListGoalItemModel>) = with(binding) {
         rvGoalList.adapter = ListGoalAdapter(list).apply {
             onItemClick = {
@@ -71,5 +85,6 @@ class ListGoalFragment : Fragment(R.layout.fragment_list_goal) {
                 findNavController().navigate(action)
             }
         }
+        firebaseAnalytics.setUserProperty("goals_list", list.size.toString())
     }
 }

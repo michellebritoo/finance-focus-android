@@ -11,6 +11,7 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
     private val _viewState = MutableLiveData<GoalDetailEvent>()
     val viewState: LiveData<GoalDetailEvent> = _viewState
     private var goalId: String = ""
+    private var completed = false
 
     fun getGoalRequest(id: String) {
         goalId = id
@@ -21,6 +22,7 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
                 onSuccess = { response ->
                     if (response.isSuccessful) {
                         val goal = response.body()
+                        completed = goal?.concluded ?: false
                         goal?.run {
                             sendUIEvent(
                                 GoalDetailEvent.ShowGoal(
@@ -44,7 +46,12 @@ class GoalDetailsViewModel(private val repository: GoalDetailsRepository) : View
                 }
             )
             sendUIEvent(GoalDetailEvent.HideLoading)
+            if (completed) sendUIEvent(GoalDetailEvent.HasCompletedGoal)
         }
+    }
+
+    fun onIncrementClicked() {
+        sendUIEvent(GoalDetailEvent.GoToIncrementScreen(goalId, completed))
     }
 
     fun onDeleteGoal() {

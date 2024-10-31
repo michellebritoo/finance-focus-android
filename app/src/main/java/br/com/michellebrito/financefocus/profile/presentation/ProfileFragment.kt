@@ -22,13 +22,14 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun setupListeners() = with(binding) {
         topBar.setNavigationOnClickListener { findNavController().popBackStack() }
-        btnEditDetails.setOnClickListener { showInDevInfo() }
-        btnDeleteAccount.setOnClickListener { showInDevInfo() }
+        btnEditDetails.setOnClickListener { findNavController().navigate(R.id.editProfileFragment) }
+        btnDeleteAccount.setOnClickListener { viewModel.onDeleteAccountClicked() }
+        btnEditLogout.setOnClickListener { viewModel.onLogoutClicked() }
 
         bottomNavigation.selectedItemId = R.id.item_profile
         bottomNavigation.setOnItemSelectedListener {
             when (it.itemId) {
-                R.id.item_rates -> findNavController().navigate(R.id.goalDetailsFragment)
+                R.id.item_rates -> findNavController().navigate(R.id.calculateRatesFragment)
                 R.id.item_goals -> findNavController().navigate(R.id.listGoalFragment)
             }
             true
@@ -41,6 +42,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
                 is ProfileEvent.ShowLoading -> showLoading()
                 is ProfileEvent.HideLoading -> hideLoading()
                 is ProfileEvent.ShowError -> showError()
+                is ProfileEvent.Logout -> goToStartScreen()
                 is ProfileEvent.ShowUserInfo -> showUserInfo(
                     state.name,
                     state.email,
@@ -55,6 +57,11 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
 
     private fun hideLoading() = (requireActivity() as MainActivity).hideLoading()
 
+    private fun goToStartScreen() {
+        findNavController().popBackStack(R.id.welcomeFragment, true)
+        findNavController().navigate(R.id.welcomeFragment)
+    }
+
     private fun showUserInfo(name: String, email: String, goals: String, rates: String) {
         with(binding) {
             tvSalutation.text = getString(R.string.profile_salutation, name)
@@ -66,12 +73,8 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun showError() {
-        //task 35
-    }
-
-    private fun showInDevInfo() {
         this@ProfileFragment.view?.let {
-            Snackbar.make(it, R.string.in_dev_explanation, Snackbar.LENGTH_LONG).show()
+            Snackbar.make(it, R.string.cannot_proceed_generic_error, Snackbar.LENGTH_LONG).show()
         }
     }
 }

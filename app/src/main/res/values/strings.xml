@@ -4,6 +4,7 @@
     <string name="btn_create_account">Criar conta</string>
     <string name="btn_continue">Continuar</string>
     <string name="btn_close">Fechar</string>
+    <string name="btn_confirm">Confirmar</string>
     <string name="btn_understood">Entendi</string>
     <string name="monetary_format">R$ %s</string>
     <string name="in_dev_explanation">Ops! Essa feature ainda esta em desenvolvimento. Tente novamente no futuro.</string>
@@ -49,6 +50,7 @@
     <!-- Home -->
     <string name="home_salutation">Olá, o que você deseja fazer hoje?</string>
     <string name="btn_create_goal">Cadastrar objetivo</string>
+    <string name="btn_view_goals">Visualizar meus objetivos</string>
     <string name="btn_check_rates">Consultar taxas de juros</string>
 
     <!-- create goal -->
@@ -88,6 +90,7 @@
 
     <!-- list of goals -->
     <string name="list_goal_title">Esses são seu objetivos</string>
+    <string name="list_goal_title_empty_state">Parece que você ainda não cadastrou nenhum objetivo\nComeçe agora mesmo!</string>
     <string name="list_goal_search">Pesquisar</string>
 
     <!-- menu items -->
@@ -115,9 +118,16 @@
     <!-- goal increment -->
     <string name="goal_increment_top_bar">Registrar progresso</string>
     <string name="goal_increment_title">Vamos registrar o seu avanço!</string>
-    <string name="goal_increment_description">Você está cada vez mais perto de alcançar seu objetivo</string>
+    <string name="goal_increment_description">Você está cada vez mais perto de alcançar seu objetivo\nSelecione o valor que deseja registrar conforme o cronograma ou clique no botão mais para registrar um valor diferente.</string>
     <string name="goal_increment_success_feedback_title">Sucesso!</string>
     <string name="goal_increment_success_feedback_description">Registramos o seu progresso com sucesso</string>
+    <string name="goal_increment_float_button_description">Registramos um valor diferente</string>
+    <string name="increment_goal_bottom_sheet_title">Deseja registrar um valor diferente?</string>
+    <string name="increment_goal_bottom_sheet_input">Informe o valor</string>
+    <string name="increment_goal_bottom_sheet_error">Por favor, insira um número válido</string>
+    <string name="increment_goal_congratulation_title">Parabéns!</string>
+    <string name="increment_goal_congratulation_description">Esse objetivo já foi alcançado, relembre sua jornada</string>
+    <string name="cannot_proceed_has_deposit_completed">Esse deposito já foi registrado</string>
 
     <!-- calculate rates -->
     <string name="finance_assistant_toolbar">Assistente de despesas</string>
@@ -147,10 +157,13 @@
 
     <!-- profile -->
     <string name="profile_edit_details">Editar informações</string>
+    <string name="profile_edit_logout">Sair</string>
     <string name="profile_delete_account">Deletar conta</string>
     <string name="profile_salutation">Olá, %s</string>
     <string name="profile_email">Email: %s</string>
     <string name="profile_notification">Receber notificações: sim</string>
     <string name="profile_goals">Objetivos alcançados: %s</string>
     <string name="profile_rates">Taxas de juros calculadas: %s</string>
+    <string name="profile_edit_title">Vamos editar suas informações</string>
+    <string name="profile_edit_name">Digite seu nome</string>
 </resources>

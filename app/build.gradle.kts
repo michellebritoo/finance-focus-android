@@ -3,6 +3,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
     id("androidx.navigation.safeargs.kotlin")
+    id("com.google.firebase.crashlytics")
+    id("com.google.firebase.firebase-perf")
 }
 
 android {
@@ -57,7 +59,9 @@ dependencies {
     implementation("io.insert-koin:koin-android:2.2.3")
     implementation("io.insert-koin:koin-androidx-viewmodel:2.2.3")
     implementation(platform("com.google.firebase:firebase-bom:32.8.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    implementation("com.google.firebase:firebase-analytics-ktx")
+    implementation("com.google.firebase:firebase-crashlytics")
+    implementation("com.google.firebase:firebase-perf")
     implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.redmadrobot:input-mask-android:7.2.4")
     implementation("io.github.vicmikhailau:MaskedEditText:5.0.2")

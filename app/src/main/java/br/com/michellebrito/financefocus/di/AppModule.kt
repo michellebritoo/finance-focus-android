@@ -33,6 +33,7 @@ import br.com.michellebrito.financefocus.passwordrecovery.presentation.PasswordR
 import br.com.michellebrito.financefocus.profile.data.ProfileClient
 import br.com.michellebrito.financefocus.profile.data.ProfileRepositoryImpl
 import br.com.michellebrito.financefocus.profile.domain.ProfileRepository
+import br.com.michellebrito.financefocus.profile.presentation.EditProfileViewModel
 import br.com.michellebrito.financefocus.profile.presentation.ProfileFragmentViewModel
 import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesClient
 import br.com.michellebrito.financefocus.rates.calculate.data.CalculateRatesRepositoryImpl
@@ -86,4 +87,5 @@ val AppModule = module {
     viewModel { GoalDetailsViewModel(get()) }
     viewModel { IncrementGoalViewModel(get()) }
     viewModel { ProfileFragmentViewModel(get()) }
+    viewModel { EditProfileViewModel(get()) }
 }

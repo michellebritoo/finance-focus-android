@@ -22,6 +22,7 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
     private fun setupListeners() = with(binding) {
         btnCreateGoal.setOnClickListener { findNavController().navigate(R.id.homeToCreateGoal) }
         btnCheckRates.setOnClickListener { findNavController().navigate(R.id.homeToCalculateRates) }
+        btnViewGoals.setOnClickListener { findNavController().navigate(R.id.listGoalFragment) }
         val callback = object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 minimizeApp()
