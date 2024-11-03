@@ -27,6 +27,7 @@ class SignUpPasswordStepFragment : Fragment(R.layout.fragment_sign_up_password_s
     }
 
     private fun setupListeners() = with(binding) {
+        topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         tilPassword.editText?.addTextChangedListener { tilPassword.error = null }
         tilConfirmPassword.editText?.addTextChangedListener { tilConfirmPassword.error = null }
         btnCreateAccount.setOnClickListener { onButtonClicked() }
