@@ -21,6 +21,7 @@ class SignUpEmailStepFragment : Fragment(R.layout.fragment_sign_up_email_step) {
     }
 
     private fun setupListeners() = with(binding) {
+        topBar.setNavigationOnClickListener { findNavController().popBackStack() }
         tilEmail.editText?.addTextChangedListener { tilEmail.error = null }
         tilEmail.editText?.addTextChangedListener { tilEmail.error = null }
         btnContinue.setOnClickListener {
