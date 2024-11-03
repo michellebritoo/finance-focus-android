@@ -1,5 +1,8 @@
 package br.com.michellebrito.financefocus.profile.presentation
 
+import android.Manifest
+import android.content.pm.PackageManager
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import br.com.michellebrito.financefocus.MainActivity
@@ -63,12 +66,30 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     }
 
     private fun showUserInfo(name: String, email: String, goals: String, rates: String) {
+        val notificationPermission = ContextCompat.checkSelfPermission(
+            requireContext(),
+            Manifest.permission.POST_NOTIFICATIONS
+        )
+
+        val notificationState = if (notificationPermission == PackageManager.PERMISSION_GRANTED) {
+            getString(R.string.profile_notification_yes)
+        } else {
+            getString(R.string.profile_notification_no)
+        }
+        println("estado: $notificationState")
+
         with(binding) {
             tvSalutation.text = getString(R.string.profile_salutation, name)
             tdEmail.setText(getString(R.string.profile_email, email))
             tdNotifications.setText(getString(R.string.profile_notification))
             tdGoals.setText(getString(R.string.profile_goals, goals))
             tdRates.setText(getString(R.string.profile_rates, rates))
+            tdNotifications.setText(
+                getString(
+                    R.string.profile_notification,
+                    notificationState
+                )
+            )
         }
     }
 
