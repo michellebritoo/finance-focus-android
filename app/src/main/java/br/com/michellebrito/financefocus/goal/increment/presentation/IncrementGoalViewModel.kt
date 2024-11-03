@@ -62,7 +62,7 @@ class IncrementGoalViewModel(private val repository: IncrementGoalRepository) : 
                             value = deposits.value,
                             completed = deposits.completed
                         )
-                    }
+                    }?.sortedBy { it.value }
                     list?.let { sendUIEvent(IncrementGoalEvent.ShowExpectedDeposits(list)) }
                 },
                 onError = {
