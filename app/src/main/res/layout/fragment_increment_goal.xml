@@ -6,16 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".goal.increment.presentation.IncrementGoalFragment">
 
-    <com.airbnb.lottie.LottieAnimationView
-        android:id="@+id/animation"
-        android:layout_width="400dp"
-        android:layout_height="250dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBar"
-        android:visibility="gone"
-        app:lottie_rawRes="@raw/animation_confetti" />
-
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
