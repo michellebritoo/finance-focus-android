@@ -17,7 +17,7 @@ object RetrofitInstance {
             httpClient.addInterceptor(logging)
 
             retrofit = Retrofit.Builder()
-                .baseUrl("http://192.168.1.68:8080")
+                .baseUrl("https://financefocus.azurewebsites.net")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient.build())
                 .build()
