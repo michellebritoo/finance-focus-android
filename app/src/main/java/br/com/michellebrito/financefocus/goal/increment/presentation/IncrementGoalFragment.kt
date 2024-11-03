@@ -70,8 +70,6 @@ class IncrementGoalFragment : Fragment(R.layout.fragment_increment_goal) {
 
     private fun hasCompletedGoal() = with(binding) {
         floatingActionButton.isVisible = false
-        animation.isVisible = true
-        animation.playAnimation()
 
         tvIncrementTitle.text = getString(R.string.increment_goal_congratulation_title)
         tvIncrementDescription.text = getString(R.string.increment_goal_congratulation_description)
